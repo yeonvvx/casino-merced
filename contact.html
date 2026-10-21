@@ -61,7 +61,7 @@
   <div class="wrap">
     <div class="cgrid">
       <div class="ccard rv"><i><svg aria-hidden="true"><use href="#pin"/></svg></i><h2>Address</h2><p>1459 Martin Luther King Jr Way, Suite 5<br>Merced, CA 95340</p><a href="https://www.google.com/maps/dir//1459+Martin+Luther+King+Jr+Way,+Merced,+CA+95340">Get directions →</a></div>
-      <div class="ccard rv"><i><svg aria-hidden="true"><use href="#phone"/></svg></i><h2>Phone</h2><p>Call the floor for tonight's games and tournament times.</p><a href="tel:+12092339369">(209) 233-9369</a></div>
+      <div class="ccard rv"><i><svg aria-hidden="true"><use href="#phone"/></svg></i><h2>Phone &amp; email</h2><p>Call the floor for tonight's games and tournament times.</p><a href="tel:+12092339369">(209) 233-9369</a><a href="mailto:khonglai@casinomerced.com">khonglai@casinomerced.com</a></div>
       <div class="ccard rv"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i><h2>Hours</h2><p>Every day, 11:00 AM to 4:00 AM</p><span class="live" id="live" style="align-self:flex-start"><i aria-hidden="true"></i><span id="status-text">11 AM–4 AM</span></span></div>
     </div>
 
@@ -101,7 +101,7 @@ document.getElementById('contact-form').addEventListener('submit',e=>{
   const bad=[...f.querySelectorAll('[required]')].find(i=>!i.value.trim()||!i.checkValidity());
   f.querySelectorAll('[aria-invalid]').forEach(i=>i.removeAttribute('aria-invalid'));
   if(bad){bad.setAttribute('aria-invalid','true');m.textContent='Please fill in your '+bad.name+(bad.type==='email'?' (like name@example.com)':'')+'.';m.classList.add('err');bad.focus();return}
-  if(!f.dataset.endpoint){m.textContent="Thanks! Online messages aren't connected yet, so please call us at (209) 233-9369.";return}
+  if(!f.dataset.endpoint){const v=n=>f.elements[n].value.trim();location.href='mailto:khonglai@casinomerced.com?subject='+encodeURIComponent(v('subject')||'Message from casinomerced.com')+'&body='+encodeURIComponent(v('message')+'\n\n'+v('name')+'\n'+v('email'));m.textContent="Your email app should open with your message ready to send. If it doesn't, email us at khonglai@casinomerced.com or call (209) 233-9369.";return}
   fetch(f.dataset.endpoint,{method:'POST',body:new FormData(f)}).then(r=>{if(!r.ok)throw 0;m.textContent="Thanks! We'll get back to you soon.";f.reset()}).catch(()=>{m.textContent='Something went wrong. Please call (209) 233-9369.';m.classList.add('err')});
 });
 </script>
@@ -109,9 +109,9 @@ document.getElementById('contact-form').addEventListener('submit',e=>{
 <footer class="foot">
   <div class="wrap">
     <div class="grid">
-      <div><a class="brand" href="index.html"><svg aria-hidden="true"><use href="#chip"/></svg>CASINO MERCED</a><address>1459 Martin Luther King Jr Way, Suite 5<br>Merced, CA 95340<br><a href="tel:+12092339369">(209) 233-9369</a><br>Open daily, 11 AM to 4 AM</address></div>
+      <div><a class="brand" href="index.html"><svg aria-hidden="true"><use href="#chip"/></svg>CASINO MERCED</a><address>1459 Martin Luther King Jr Way, Suite 5<br>Merced, CA 95340<br><a href="tel:+12092339369">(209) 233-9369</a><br><a href="mailto:khonglai@casinomerced.com">khonglai@casinomerced.com</a><br>Open daily, 11 AM to 4 AM</address></div>
       <div><h3>Play</h3><ul><li><a href="games.html">Games</a></li><li><a href="tournaments.html">Tournaments</a></li><li><a href="https://www.pokeratlas.com/poker-room/merced/tournaments">Tournament calendar</a></li></ul></div>
-      <div><h3>Visit</h3><ul><li><a href="menu.html">Bar &amp; Grill menu</a></li><li><a href="contact.html">Hours &amp; directions</a></li><li><a href="index.html#signup">Weekly prizes</a></li><li><a href="contact.html#message">Contact us</a></li></ul></div>
+      <div><h3>Visit</h3><ul><li><a href="menu.html">Bar &amp; Grill menu</a></li><li><a href="contact.html">Hours &amp; directions</a></li><li><a href="index.html#signup">Prizes &amp; events</a></li><li><a href="contact.html#message">Contact us</a></li></ul></div>
       <div><h3>Info</h3><ul><li><a href="responsible-gaming.html">Responsible gaming</a></li><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms of use</a></li><li><a href="privacy.html#cookies">Cookies</a></li><li><a href="tel:18004262537">1-800-GAMBLER</a></li></ul></div>
     </div>
     <p class="rgline">You must be 21 or older to play. Gambling problem? Call <a href="tel:18004262537">1-800-GAMBLER</a>, free and confidential.</p>

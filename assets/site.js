@@ -61,6 +61,6 @@ setTimeout(()=>{if(!window.__gsapReady)document.querySelectorAll('.rv').forEach(
   if(!em.value||!em.checkValidity()){m.textContent='Enter an email like name@example.com.';m.classList.add('err');em.setAttribute('aria-invalid','true');em.focus();return}
   if(!c.checked){m.textContent='Check the box to confirm you are 21+.';m.classList.add('err');c.setAttribute('aria-invalid','true');c.focus();return}
   const f=e.target;
-  if(!f.dataset.endpoint){m.textContent="Online signup isn't connected yet. Call (209) 233-9369 and we'll add you to the list.";return}
+  if(!f.dataset.endpoint){m.textContent="Online signup isn't connected yet. Email khonglai@casinomerced.com or call (209) 233-9369 and we'll add you to the list.";return}
   fetch(f.dataset.endpoint,{method:'POST',body:new FormData(f)}).then(r=>{if(!r.ok)throw 0;m.textContent="You're on the list!";f.reset()}).catch(()=>{m.textContent='Something went wrong. Please call (209) 233-9369.';m.classList.add('err')});
 });
