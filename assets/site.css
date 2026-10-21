@@ -12,6 +12,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:var(--bg)}
+html{overflow-x:clip}
 body{font-family:var(--body);font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:clip;position:relative}
 body::before{content:"";position:fixed;inset:0;z-index:-2;background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1.4px);background-size:22px 22px;mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.35));-webkit-mask-image:linear-gradient(180deg,#000,rgba(0,0,0,.35))}
 body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(600px 420px at 15% 8%,rgba(242,193,78,.08),transparent 70%),radial-gradient(520px 420px at 90% 30%,rgba(242,193,78,.06),transparent 70%),radial-gradient(700px 500px at 50% 110%,rgba(242,193,78,.08),transparent 70%)}
@@ -381,3 +382,6 @@ html,body{max-width:100%}
   main p a{padding-block:12px}
   .ccard > a{display:inline-flex;align-items:center;min-height:44px}
 }
+
+/* split-flap board: use the display face with tabular figures instead of whatever monospace the OS has */
+body .split-flap-text{font-family:var(--head);font-variant-numeric:tabular-nums}
