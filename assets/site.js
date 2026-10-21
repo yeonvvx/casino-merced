@@ -21,7 +21,7 @@ const still=()=>reduce||a11y.rm;window.__still=still;
     ['Poker_chips_2.jpg','2/2c','Baccarat','','Soon'],
     ['Poker_Chips_%284041237051%29.jpg','d/dc',"Ultimate Texas Hold'em",'v','Soon']
   ];
-  const tile=t=>`<div class="tile ${t[3]}"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/${t[1]}/${t[0]}/1280px-${t[0]}" alt="" loading="lazy" width="640" height="480">${t[4]?`<em>${t[4]}</em>`:''}<span>${t[2]}</span></div>`;
+  const tile=t=>`<div class="tile ${t[3]}"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/${t[1]}/${t[0]}/500px-${t[0]}" alt="" loading="lazy" width="640" height="480">${t[4]?`<em>${t[4]}</em>`:''}<span>${t[2]}</span></div>`;
   const a=T.map(tile).join(''), b=[...T].reverse().map(tile).join('');
   document.getElementById('trackA').innerHTML=a+a;
   document.getElementById('trackB').innerHTML=b+b;
@@ -60,5 +60,7 @@ setTimeout(()=>{if(!window.__gsapReady)document.querySelectorAll('.rv').forEach(
   m.className='msg';em.removeAttribute('aria-invalid');c.removeAttribute('aria-invalid');
   if(!em.value||!em.checkValidity()){m.textContent='Enter an email like name@example.com.';m.classList.add('err');em.setAttribute('aria-invalid','true');em.focus();return}
   if(!c.checked){m.textContent='Check the box to confirm you are 21+.';m.classList.add('err');c.setAttribute('aria-invalid','true');c.focus();return}
-  m.textContent="You're on the list!";e.target.reset();
+  const f=e.target;
+  if(!f.dataset.endpoint){m.textContent="Online signup isn't connected yet. Call (209) 233-9369 and we'll add you to the list.";return}
+  fetch(f.dataset.endpoint,{method:'POST',body:new FormData(f)}).then(r=>{if(!r.ok)throw 0;m.textContent="You're on the list!";f.reset()}).catch(()=>{m.textContent='Something went wrong. Please call (209) 233-9369.';m.classList.add('err')});
 });
