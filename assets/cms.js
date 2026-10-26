@@ -55,7 +55,8 @@ function renderGames(gs){
   if(home)home.innerHTML=gs.map(g=>`<article class="gcard rv">${g.status==='soon'?'<span class="soon">Soon</span>':''}${suit(g)}<h3>${esc(g.name)}</h3><p>${esc(g.card_text||g.description||'')}</p></article>`).join('');
   const A=$('trackA'),B=$('trackB');
   if(A&&B){const withImg=gs.filter(g=>g.image);
-    const tile=(g,i)=>`<div class="tile ${i%2?'v':''}"><img src="${esc(thumb(g.image,500))}" alt="" loading="lazy" width="640" height="480">${g.status==='soon'?'<em>Soon</em>':''}<span>${esc(g.name)}</span></div>`;
+    // The strip is aria-hidden and the same games are linked in the cards below, so tiles stay out of the tab order.
+    const tile=(g,i)=>`<a class="tile ${i%2?'v':''}" href="games.html#${g.status==='soon'?'games-soon':esc(g.id)}" tabindex="-1"><img src="${esc(thumb(g.image,500))}" alt="" loading="lazy" width="640" height="480">${g.status==='soon'?'<em>Soon</em>':''}<span>${esc(g.name)}</span></a>`;
     const a=withImg.map(tile).join(''),b=[...withImg].reverse().map(tile).join('');A.innerHTML=a+a;B.innerHTML=b+b}
   const nav=$('games-nav');
   if(nav)nav.innerHTML=open.map(g=>`<a href="#${esc(g.id)}">${esc(g.nav_label||g.name)}</a>`).join('')+(soon.length?'<a href="#games-soon">Coming soon</a>':'');
@@ -108,4 +109,8 @@ window.cmReady=Promise.race([timeout,Promise.all([
   if(m)renderMenu(m);
   if(t)renderTourneys(prepTourneys(t.tournaments));
 })]).catch(e=>console.error(e)).then(()=>{window.cmTourneys=window.cmTourneys||null});
+// Sections built from data didn't exist when the browser tried to jump to #game,
+// so jump once they're on the page (and after the smooth-scroll library starts).
+window.cmReady.then(()=>{const id=decodeURIComponent(location.hash.slice(1));const el=id&&document.getElementById(id);
+  if(el)requestAnimationFrame(()=>setTimeout(()=>{window.__lenis?window.__lenis.scrollTo(el,{immediate:true,offset:-140}):el.scrollIntoView()},50))});
 })();

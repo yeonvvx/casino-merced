@@ -111,11 +111,10 @@ h1,h2,h3{font-family:var(--head);color:var(--white);font-weight:600;letter-spaci
 .marquee{display:flex;flex-direction:column;gap:14px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .track{display:flex;gap:14px;width:max-content;animation:slide 46s linear infinite}
 .track.rev{animation-direction:reverse;animation-duration:52s}
-.marquee:hover .track{animation-play-state:paused}
 @keyframes slide{to{transform:translateX(-50%)}}
 .tile{position:relative;width:200px;aspect-ratio:4/3;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1.5px rgba(242,193,78,.55),0 10px 24px -12px rgba(0,0,0,.7);flex:none}
 .tile.v{box-shadow:0 0 0 1.5px var(--edge),0 10px 24px -12px rgba(0,0,0,.7)}
-.tile img{width:100%;height:100%;object-fit:cover}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform 400ms var(--ease)}
 .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.9))}
 .tile span{position:absolute;left:12px;right:12px;bottom:10px;z-index:1;font:600 14px/1.2 var(--head);color:#fff}
 .tile em{position:absolute;top:10px;left:10px;z-index:1;font:600 11px/1 var(--body);font-style:normal;letter-spacing:.08em;text-transform:uppercase;background:var(--red);color:#fff;padding:5px 8px;border-radius:6px}
@@ -404,3 +403,10 @@ body .split-flap-text{font-family:var(--head);font-variant-numeric:tabular-nums}
 .join .form input,.join .form textarea{width:100%}
 .join .form textarea{min-height:160px}
 @media (max-width:760px){.join .form{grid-template-columns:1fr}}
+
+/* marquee tiles link to their game; the strip keeps moving on hover */
+a.tile{display:block;color:inherit;text-decoration:none;transition:box-shadow 200ms ease}
+@media (hover:hover) and (pointer:fine){
+  a.tile:hover{box-shadow:0 0 0 2px var(--gold),0 10px 24px -12px rgba(0,0,0,.7)}
+  a.tile:hover img{transform:scale(1.06)}
+}
