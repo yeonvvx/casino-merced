@@ -1,12 +1,12 @@
 {
   "games": [
     {
-      "id": "buster",
       "name": "Pure 21.5 Buster Blackjack",
       "nav_label": "21.5 Buster",
       "gold_words": "Buster Blackjack",
-      "category": "Blackjack",
+      "id": "buster",
       "status": "open",
+      "category": "Blackjack",
       "suit": "spade",
       "card_text": "Get closest to 21.5 without going over. An ace with a ten or face card pays 6 to 5.",
       "description": "Players and the player-dealer add up their cards and aim for 21.5. Get as close as you can without going over.",
@@ -29,12 +29,12 @@
       "show_tournaments": false
     },
     {
-      "id": "spanish",
       "name": "Pure 21.5 Spanish Blackjack",
       "nav_label": "21.5 Spanish",
       "gold_words": "Spanish Blackjack",
-      "category": "Blackjack",
+      "id": "spanish",
       "status": "open",
+      "category": "Blackjack",
       "suit": "heart",
       "card_text": "Tens out of the deck. Split up to three times, double more than once, and 21 always wins.",
       "description": "Played much like standard blackjack: beat the dealer's total without going over 21. The tens are taken out of the decks, but the picture cards stay in.",
@@ -52,17 +52,16 @@
           "text": "automatically."
         }
       ],
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Double_down.JPG/1280px-Double_down.JPG",
       "image_alt": "A blackjack hand doubled down on green felt",
       "show_tournaments": false
     },
     {
-      "id": "three-card",
       "name": "Three Card Poker, 6 Card Bonus",
       "nav_label": "Three Card Poker",
       "gold_words": "6 Card Bonus",
-      "category": "Poker against the house",
+      "id": "three-card",
       "status": "open",
+      "category": "Poker against the house",
       "suit": "club",
       "card_text": "With the 6 Card Bonus: a pair or better pays, and the Six Card bonus pays up to 1000 to 1.",
       "description": "Three cards each and one hand against the dealer, with two popular bonus bets on the side.",
@@ -81,12 +80,11 @@
       "show_tournaments": false
     },
     {
-      "id": "poker",
       "name": "Poker room",
       "nav_label": "Poker room",
-      "gold_words": "",
-      "category": "Poker room",
+      "id": "poker",
       "status": "open",
+      "category": "Poker room",
       "suit": "diamond",
       "card_text": "Four tables of Omaha and spread-limit Texas Hold'em, plus weekly tournaments.",
       "description": "Omaha and spread-limit Texas Hold'em cash games on four tables, plus weekly No-Limit Hold'em tournaments. Games change night to night, so call to hear what's playing.",
@@ -101,31 +99,25 @@
       "show_tournaments": true
     },
     {
-      "id": "baccarat",
       "name": "Baccarat",
       "nav_label": "Baccarat",
-      "gold_words": "",
-      "category": "",
-      "status": "soon",
+      "id": "baccarat",
+      "status": "open",
       "suit": "spade",
       "card_text": "Back the Player, the Banker or a tie. The hand closest to nine wins.",
       "description": "One of the most popular games anywhere. Back the Player, the Banker or a tie, and the hand closest to nine wins.",
-      "rules": [],
       "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Poker_chips_2.jpg/1280px-Poker_chips_2.jpg",
       "image_alt": "Stacks of poker chips",
       "show_tournaments": false
     },
     {
-      "id": "ultimate-texas-holdem",
       "name": "Ultimate Texas Hold'em",
       "nav_label": "Ultimate Texas Hold'em",
-      "gold_words": "",
-      "category": "",
+      "id": "ultimate-texas-holdem",
       "status": "soon",
       "suit": "heart",
       "card_text": "Heads-up against the dealer, with a Bad Beat bonus that pays win or lose.",
       "description": "Play heads-up against the dealer's hand. The Bad Beat bonus pays when the dealer has three of a kind or better, whether you win or lose the hand.",
-      "rules": [],
       "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Poker_Chips_%284041237051%29.jpg/1280px-Poker_Chips_%284041237051%29.jpg",
       "image_alt": "Poker chips on a green table",
       "show_tournaments": false
