@@ -62,7 +62,7 @@ function renderGames(gs){
   if(nav)nav.innerHTML=open.map(g=>`<a href="#${esc(g.id)}">${esc(g.nav_label||g.name)}</a>`).join('')+(soon.length?'<a href="#games-soon">Coming soon</a>':'');
   const det=$('games-detail');
   if(det)det.innerHTML=open.map((g,i)=>`<section class="gdetail${i%2?' flip':''}" id="${esc(g.id)}" aria-labelledby="g-${esc(g.id)}">
-      <div class="frame rv"><div class="im">${img(g.image,g.image_alt,'(max-width: 760px) 92vw, 560px')}</div></div>
+      <div class="frame rv"><div class="im${g.image?'':' nophoto'}">${g.image?img(g.image,g.image_alt,'(max-width: 760px) 92vw, 560px'):`<svg aria-hidden="true"><use href="#${esc(g.suit||'spade')}"/></svg>`}</div></div>
       <div>
         ${g.category?`<span class="kicker rv">${esc(g.category)}</span>`:''}
         <h2 id="g-${esc(g.id)}" class="rv">${goldName(g.name,g.gold_words)}</h2>
