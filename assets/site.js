@@ -10,22 +10,7 @@ const still=()=>reduce||a11y.rm;window.__still=still;
 // mobile menu + nav background
 (function(){const b=document.getElementById('menu-btn'),n=document.getElementById('links');const setOpen=o=>{n.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close menu':'Open menu')};b.addEventListener('click',()=>{const o=!n.classList.contains('open');setOpen(o);if(o){const f=n.querySelector('a');f&&f.focus()}});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&n.classList.contains('open')){setOpen(false);b.focus()}});n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('open');b.setAttribute('aria-expanded',false)}));const nav=document.getElementById('nav');const f=()=>nav.classList.toggle('solid',scrollY>30);addEventListener('scroll',f,{passive:true});f()})();
 
-// game tiles: two rows, duplicated for a seamless loop
-(function(){
-  if(!document.getElementById('trackA'))return;
-  const T=[
-    ['Blurry_blackjack_table.jpg','7/7e','Pure 21.5 Buster Blackjack',''],
-    ['Cards_-Deck_Playing.jpg','7/7f','Three Card Poker','v'],
-    ['Two_poker_cards_and_poker_chips_20170611.jpg','4/40','Poker room',''],
-    ['Double_down.JPG','d/df','Pure 21.5 Spanish Blackjack','v'],
-    ['Poker_chips_2.jpg','2/2c','Baccarat','','Soon'],
-    ['Poker_Chips_%284041237051%29.jpg','d/dc',"Ultimate Texas Hold'em",'v','Soon']
-  ];
-  const tile=t=>`<div class="tile ${t[3]}"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/${t[1]}/${t[0]}/500px-${t[0]}" alt="" loading="lazy" width="640" height="480">${t[4]?`<em>${t[4]}</em>`:''}<span>${t[2]}</span></div>`;
-  const a=T.map(tile).join(''), b=[...T].reverse().map(tile).join('');
-  document.getElementById('trackA').innerHTML=a+a;
-  document.getElementById('trackB').innerHTML=b+b;
-})();
+// game tiles are built from data/games.json in cms.js
 
 // live: status, next tournament, clock (Merced time)
 (function(){
@@ -44,16 +29,18 @@ const still=()=>reduce||a11y.rm;window.__still=still;
     set('clock-title',open?'Open until 4 AM':'Opens at 11 AM');
     set('clock-sub','Merced time '+new Intl.DateTimeFormat('en-US',{timeZone:tz,hour:'numeric',minute:'2-digit'}).format(new Date()));
     const now=d*1440+h*60+m;let best=null;
-    for(const [dd,mm,label] of [[3,1080,'Wed 6 PM · $52'],[6,780,'Sat 1 PM · $32']]){let at=dd*1440+mm;if(at<=now)at+=10080;if(!best||at<best.at)best={at,label}}
+    const list=window.cmTourneys?window.cmTourneys.map(t=>[t.dayIdx,t.mins,t.label]):[[3,1080,'Wed 6 PM · $52'],[6,780,'Sat 1 PM · $32']];
+    for(const [dd,mm,label] of list){let at=dd*1440+mm;if(at<=now)at+=10080;if(!best||at<best.at)best={at,label}}
+    if(!best){set('next-label','Call for the schedule');set('next-count','');set('countdown','soon');return}
     const diff=best.at-now,D=Math.floor(diff/1440),H=Math.floor(diff%1440/60),M=diff%60,txt=`${D?D+'d ':''}${H}h ${M}m`;
     set('next-label',best.label);
     set('next-count','in '+txt);
     set('countdown',txt);
   }
-  tick();setInterval(tick,1000);
+  tick();(window.cmReady||Promise.resolve()).then(()=>{tick();setInterval(tick,1000)});
 })();
 
-setTimeout(()=>{if(!window.__gsapReady)document.querySelectorAll('.rv').forEach(e=>e.classList.add('in'))},2500);
+(window.cmReady||Promise.resolve()).then(()=>setTimeout(()=>{if(!window.__gsapReady)document.querySelectorAll('.rv').forEach(e=>e.classList.add('in'))},2500));
 
 (document.getElementById('signup-form')||{addEventListener(){}}).addEventListener('submit',e=>{
   e.preventDefault();const em=document.getElementById('email'),c=document.getElementById('consent'),m=document.getElementById('msg');

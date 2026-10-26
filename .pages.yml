@@ -1,0 +1,248 @@
+# Pages CMS (https://pagescms.org) editor for the Casino Merced site.
+# Each entry edits one file in data/; the pages read those files when they load.
+media:
+  input: assets/uploads
+  output: assets/uploads
+  categories: [image]
+
+content:
+  - name: menu
+    label: Menu
+    type: file
+    path: data/menu.json
+    format: json
+    fields:
+      - name: sections
+        label: Menu sections
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Section title
+            type: string
+            required: true
+          - name: nav_label
+            label: Short name for the buttons at the top
+            description: Optional, e.g. "Burgers". Leave empty to use the full name.
+            type: string
+          - name: subtitle
+            label: Short line under the title
+            type: string
+          - name: id
+            label: Link name
+            description: Lowercase letters, numbers and dashes only, e.g. appetizers. Used for the buttons at the top of the menu.
+            type: string
+            required: true
+            pattern:
+              regex: "^[a-z0-9-]+$"
+              message: Use lowercase letters, numbers and dashes only.
+          - name: layout
+            label: Layout
+            type: select
+            default: cards
+            options:
+              values:
+                - value: cards
+                  label: Cards with descriptions
+                - value: photo
+                  label: Photo with a simple list
+          - name: image
+            label: Photo (only shown with the photo layout)
+            type: image
+          - name: image_alt
+            label: Photo description
+            description: Describe the photo for people who can't see it, e.g. "A cheeseburger with fries".
+            type: string
+          - name: items
+            label: Items
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name} · ${price}"
+            fields:
+              - name: name
+                label: Name
+                type: string
+                required: true
+              - name: price
+                label: Price
+                description: Leave empty to hide the price.
+                type: number
+                options:
+                  min: 0
+                  step: 0.01
+              - name: option
+                label: Size or choices
+                description: Optional, e.g. "8 oz" or "Steak, chicken or beef".
+                type: string
+              - name: description
+                label: Description
+                type: text
+              - name: vegan
+                label: Vegan
+                type: boolean
+                default: false
+
+  - name: games
+    label: Games
+    type: file
+    path: data/games.json
+    format: json
+    fields:
+      - name: games
+        label: Games
+        description: The order here is the order on the site.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Game name
+            type: string
+            required: true
+          - name: nav_label
+            label: Short name for the buttons at the top
+            description: Optional, e.g. "21.5 Buster". Leave empty to use the full name.
+            type: string
+          - name: gold_words
+            label: Words to show in gold
+            description: Optional. Part of the game name to highlight on the Games page, e.g. "Buster Blackjack".
+            type: string
+          - name: id
+            label: Link name
+            description: Lowercase letters, numbers and dashes only, e.g. three-card.
+            type: string
+            required: true
+            pattern:
+              regex: "^[a-z0-9-]+$"
+              message: Use lowercase letters, numbers and dashes only.
+          - name: status
+            label: Status
+            type: select
+            default: open
+            options:
+              values:
+                - value: open
+                  label: Open now
+                - value: soon
+                  label: Coming soon
+          - name: category
+            label: Small label above the name
+            description: Optional, e.g. "Blackjack" or "Poker room".
+            type: string
+          - name: suit
+            label: Card suit icon
+            type: select
+            default: spade
+            options:
+              values:
+                - value: spade
+                  label: Spade
+                - value: heart
+                  label: Heart
+                - value: diamond
+                  label: Diamond
+                - value: club
+                  label: Club
+          - name: card_text
+            label: Short text for the home page card
+            type: text
+          - name: description
+            label: Description for the Games page
+            type: text
+          - name: rules
+            label: Key rules
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{bold} {text}"
+            fields:
+              - name: bold
+                label: Bold start
+                description: e.g. "Pays 6 to 5"
+                type: string
+              - name: text
+                label: Rest of the line
+                type: string
+          - name: image
+            label: Photo
+            type: image
+          - name: image_alt
+            label: Photo description
+            description: Describe the photo for people who can't see it.
+            type: string
+          - name: show_tournaments
+            label: Show the tournament schedule and call buttons
+            description: Turn on for the poker room.
+            type: boolean
+            default: false
+
+  - name: tournaments
+    label: Tournaments
+    type: file
+    path: data/tournaments.json
+    format: json
+    fields:
+      - name: tournaments
+        label: Weekly tournaments
+        description: Each one repeats every week. The countdown and schedule update automatically.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{day} {time} · {name}"
+        fields:
+          - name: name
+            label: Name
+            type: string
+            required: true
+          - name: active
+            label: Show on the site
+            description: Turn off to hide this tournament without deleting it.
+            type: boolean
+            default: true
+          - name: day
+            label: Day
+            type: select
+            required: true
+            options:
+              values: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+          - name: time
+            label: Start time
+            description: Like 6:00 PM or 1:30 PM (Merced time).
+            type: string
+            required: true
+            pattern:
+              regex: "^(1[0-2]|[1-9]):[0-5][0-9] (AM|PM)$"
+              message: Use a time like 6:00 PM.
+          - name: buy_in
+            label: Buy-in ($)
+            type: number
+            options:
+              min: 0
+              step: 1
+          - name: game
+            label: Game
+            type: string
+            default: No-Limit Hold'em
+          - name: description
+            label: Short description
+            type: string
+          - name: tags
+            label: Extra tags
+            description: Small labels like "Arrive early".
+            type: string
+            list: true
+          - name: image
+            label: Photo
+            type: image
+          - name: image_alt
+            label: Photo description
+            type: string

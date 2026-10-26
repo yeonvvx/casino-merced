@@ -1,0 +1,216 @@
+{
+  "sections": [
+    {
+      "id": "appetizers",
+      "title": "Appetizers",
+      "nav_label": "Appetizers",
+      "subtitle": "Made to share at the table.",
+      "layout": "cards",
+      "image": "",
+      "image_alt": "",
+      "items": [
+        {
+          "name": "Deep-Fried Mushrooms",
+          "price": 10.99,
+          "option": "",
+          "description": "Golden fried mushrooms with chipotle aioli.",
+          "vegan": false
+        },
+        {
+          "name": "Garlic Fries",
+          "price": 7.99,
+          "option": "",
+          "description": "Thick-cut fries tossed with garlic and herbs.",
+          "vegan": false
+        },
+        {
+          "name": "Philly Cheese Quesadilla",
+          "price": 13.99,
+          "option": "",
+          "description": "Sliced Philly-style steak, peppers and onions in a flour tortilla.",
+          "vegan": false
+        },
+        {
+          "name": "Chicken Wings",
+          "price": 12.99,
+          "option": "6 pieces",
+          "description": "Buffalo, orange or barbecue.",
+          "vegan": false
+        },
+        {
+          "name": "Beer-Battered Mozzarella Sticks",
+          "price": 10.99,
+          "option": "",
+          "description": "Served with marinara.",
+          "vegan": false
+        },
+        {
+          "name": "Deep-Fried Bacon",
+          "price": 9.99,
+          "option": "",
+          "description": "Bacon in a sweet batter, served with syrup.",
+          "vegan": false
+        },
+        {
+          "name": "Nachos Supreme",
+          "price": 14.99,
+          "option": "Steak, chicken or beef",
+          "description": "Olives, tomatoes, lettuce, guacamole and sour cream.",
+          "vegan": false
+        },
+        {
+          "name": "Sampler Special",
+          "price": 21.99,
+          "option": "",
+          "description": "Three wings, quesadilla, garlic fries, fried mushrooms and mozzarella sticks.",
+          "vegan": false
+        }
+      ]
+    },
+    {
+      "id": "mains",
+      "title": "The Good Stuff",
+      "nav_label": "Good Stuff",
+      "subtitle": "Dinner plates from the grill.",
+      "layout": "cards",
+      "image": "",
+      "image_alt": "",
+      "items": [
+        {
+          "name": "New York Steak",
+          "price": 26.99,
+          "option": "8 oz",
+          "description": "Topped with onions and mushrooms.",
+          "vegan": false
+        },
+        {
+          "name": "Gourmet Sirloin",
+          "price": 24.99,
+          "option": "",
+          "description": "Bacon-wrapped and grilled medium.",
+          "vegan": false
+        },
+        {
+          "name": "Chicken Marsala",
+          "price": 19.99,
+          "option": "",
+          "description": "Two chicken breast fillets in a mushroom, garlic and Marsala wine sauce.",
+          "vegan": false
+        },
+        {
+          "name": "Chicken and Ribs Dinner",
+          "price": 24.99,
+          "option": "",
+          "description": "An 8 oz chicken breast with a half rack of barbecue ribs.",
+          "vegan": false
+        },
+        {
+          "name": "Atlantic Salmon",
+          "price": 23.99,
+          "option": "8 oz",
+          "description": "Grilled with lemon.",
+          "vegan": false
+        },
+        {
+          "name": "Traditional Fish and Chips",
+          "price": 17.99,
+          "option": "",
+          "description": "Three cod planks with fries.",
+          "vegan": false
+        },
+        {
+          "name": "House Fettuccine",
+          "price": 17.99,
+          "option": "Chicken, fish or shrimp",
+          "description": "Creamy alfredo.",
+          "vegan": false
+        },
+        {
+          "name": "Vegan Portabella",
+          "price": 15.99,
+          "option": "",
+          "description": "With garlic and olive oil.",
+          "vegan": true
+        }
+      ]
+    },
+    {
+      "id": "sandwiches",
+      "title": "Sandwiches",
+      "nav_label": "Sandwiches",
+      "subtitle": "Grilled or cold.",
+      "layout": "cards",
+      "image": "",
+      "image_alt": "",
+      "items": [
+        {
+          "name": "Steak Sandwich",
+          "price": 17.99,
+          "option": "",
+          "description": "An 8 oz sirloin on a French roll, with fries.",
+          "vegan": false
+        },
+        {
+          "name": "Garlic Chicken Sandwich",
+          "price": 14.99,
+          "option": "",
+          "description": "On garlic bread with avocado and mushrooms.",
+          "vegan": false
+        },
+        {
+          "name": "California Club",
+          "price": 14.99,
+          "option": "",
+          "description": "Turkey, bacon, ham and tomato on gourmet bread.",
+          "vegan": false
+        },
+        {
+          "name": "Hot Beef Sandwich",
+          "price": 15.99,
+          "option": "Philly, French dip or BBQ",
+          "description": "Your choice of style.",
+          "vegan": false
+        }
+      ]
+    },
+    {
+      "id": "burgers",
+      "title": "Burgers off the grill",
+      "nav_label": "Burgers",
+      "subtitle": "Served on a toasted bun with lettuce, tomato and onion.",
+      "layout": "photo",
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Cheeseburger_and_fries_2.jpg/1280px-Cheeseburger_and_fries_2.jpg",
+      "image_alt": "A cheeseburger with fries",
+      "items": [
+        {
+          "name": "Classic Cheeseburger",
+          "price": 13.99,
+          "option": "",
+          "description": "",
+          "vegan": false
+        },
+        {
+          "name": "Bacon Cheeseburger",
+          "price": 15.99,
+          "option": "",
+          "description": "",
+          "vegan": false
+        },
+        {
+          "name": "Mushroom Swiss Burger",
+          "price": 15.99,
+          "option": "",
+          "description": "",
+          "vegan": false
+        },
+        {
+          "name": "BBQ Bacon Burger",
+          "price": 16.99,
+          "option": "",
+          "description": "",
+          "vegan": false
+        }
+      ]
+    }
+  ]
+}

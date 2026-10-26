@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tournaments | Casino Merced</title>
-<meta name="description" content="No-Limit Hold'em tournaments every Wednesday at 6 PM ($52) and Saturday at 1 PM ($32) at Casino Merced.">
+<meta name="description" content="Weekly No-Limit Hold'em tournaments at Casino Merced: start times, buy-ins and how to get a seat.">
 <meta name="theme-color" content="#070707">
 <meta property="og:title" content="Tournaments | Casino Merced">
-<meta property="og:description" content="No-Limit Hold'em tournaments every Wednesday at 6 PM ($52) and Saturday at 1 PM ($32) at Casino Merced.">
+<meta property="og:description" content="Weekly No-Limit Hold'em tournaments at Casino Merced: start times, buy-ins and how to get a seat.">
 <meta property="og:image" content="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Blurry_blackjack_table.jpg/1280px-Blurry_blackjack_table.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23070707'/%3E%3Cpath d='M16 6s7 4.7 8 9c.8 3-1.4 5.4-3.9 5.4-1.4 0-2.5-.7-3.2-1.6.3 1.9 1 3.4 2.4 4.7H12.7c1.4-1.3 2.1-2.8 2.4-4.7-.7.9-1.8 1.6-3.2 1.6-2.5 0-4.7-2.4-3.9-5.4 1-4.3 8-9 8-9z' fill='%23f2c14e'/%3E%3C/svg%3E">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Casino","name":"Casino Merced","telephone":"+1-209-233-9369","foundingDate":"2011","address":{"@type":"PostalAddress","streetAddress":"1459 Martin Luther King Jr Way, Suite 5","addressLocality":"Merced","addressRegion":"CA","postalCode":"95340","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"11:00","closes":"04:00"}]}</script>
@@ -48,46 +48,42 @@
   </div>
 </header>
 
-<main id="main" tabindex="-1">
+<main id="main" tabindex="-1" data-cms-need="tournaments">
   <section class="page-hero" aria-labelledby="pg-title">
     <div class="decor" data-depth="-90" style="left:4%;top:130px;width:84px"><div style="--r0:-14deg;--t:8s"><svg viewBox="0 0 70 98" aria-hidden="true"><use href="#card-back"/></svg></div></div>
     <div class="decor" data-depth="-130" style="right:6%;top:160px;width:58px"><div style="--r0:10deg;--t:6.5s"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#chip"/></svg></div></div>
     <div class="wrap">
       <span class="crumbs rv"><a href="index.html">Home</a> / Tournaments</span>
-      <h1 id="pg-title" class="rv">No-Limit Hold'em, <span class="grad">twice a week</span></h1>
-      <p class="rv">Tournaments every Wednesday night and Saturday afternoon in our four-table poker room. Arrive early to get a seat.</p>
+      <h1 id="pg-title" class="rv">No-Limit Hold'em, <span class="grad" data-tcount>twice a week</span></h1>
+      <p class="rv">No-Limit Hold'em tournaments every week in our four-table poker room. Arrive early to get a seat.</p>
     </div>
   </section>
   <div class="wrap">
     <div class="board rv">
       <span class="kicker">Next up</span>
-      <div class="flapbox" aria-hidden="true" style="margin-top:18px"><div id="rb-flap"><span class="flap-static">Wed 6 PM · $52 &nbsp;/&nbsp; Sat 1 PM · $32</span></div></div>
-      <p class="countline" aria-live="polite"><span id="next-label">Wed 6 PM · $52</span> starts in <b id="countdown">a few days</b></p>
+      <div class="flapbox" aria-hidden="true" style="margin-top:18px"><div id="rb-flap"><span class="flap-static">Weekly No-Limit Hold'em</span></div></div>
+      <p class="countline" aria-live="polite"><span id="next-label">The next tournament</span> starts in <b id="countdown">a few days</b></p>
     </div>
 
     <section class="sec" aria-labelledby="sched-title" style="padding:90px 0 40px">
       <div class="sec-head"><span class="kicker rv">Weekly schedule</span><h2 id="sched-title" class="rv">Every week</h2></div>
+    <p class="note" data-cms-fallback="tournaments" hidden>The tournament schedule didn't load. Refresh the page, or call the floor at <a href="tel:+12092339369">(209) 233-9369</a>.</p>
+<noscript><p class="note">Turn on JavaScript to see the tournament schedule, or call the floor at <a href="tel:+12092339369">(209) 233-9369</a>.</p></noscript>
       <table class="sched rv">
         <caption class="sr">Weekly tournament schedule</caption>
         <thead><tr><th scope="col">Day</th><th scope="col">Start</th><th scope="col">Game</th><th scope="col">Buy-in</th></tr></thead>
-        <tbody>
-          <tr><td data-l="Day">Wednesday</td><td data-l="Start" class="gold">6:00 PM</td><td data-l="Game">No-Limit Hold'em</td><td data-l="Buy-in" class="gold">$52</td></tr>
-          <tr><td data-l="Day">Saturday</td><td data-l="Start" class="gold">1:00 PM</td><td data-l="Game">No-Limit Hold'em</td><td data-l="Buy-in" class="gold">$32</td></tr>
-        </tbody>
+        <tbody id="tourney-rows"></tbody>
       </table>
       <p class="note rv">Schedules can change. <a href="tel:+12092339369" style="color:var(--gold)">Call the floor</a> to confirm, or check the live <a href="https://www.pokeratlas.com/poker-room/merced/tournaments" style="color:var(--gold)">PokerAtlas calendar</a>.</p>
     </section>
 
-    <div class="events" style="margin-top:0">
-      <article class="ev rv"><div class="im"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Poker_Chips_%284041237051%29.jpg/960px-Poker_Chips_%284041237051%29.jpg" srcset="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Poker_Chips_%284041237051%29.jpg/500px-Poker_Chips_%284041237051%29.jpg 500w, https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Poker_Chips_%284041237051%29.jpg/960px-Poker_Chips_%284041237051%29.jpg 960w, https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Poker_Chips_%284041237051%29.jpg/1280px-Poker_Chips_%284041237051%29.jpg 1280w" sizes="120px" alt="Poker chips on a green table" width="1280" height="960" loading="lazy"></div><div><span class="when">Every Wednesday · 6 PM</span><h3>Wednesday Night Hold'em</h3><p>No-Limit Hold'em after work.</p><div class="tags"><span>$52 buy-in</span><span>Arrive early</span></div></div></article>
-      <article class="ev rv"><div class="im"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Poker_chips_2.jpg/960px-Poker_chips_2.jpg" srcset="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Poker_chips_2.jpg/500px-Poker_chips_2.jpg 500w, https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Poker_chips_2.jpg/960px-Poker_chips_2.jpg 960w, https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Poker_chips_2.jpg/1280px-Poker_chips_2.jpg 1280w" sizes="120px" alt="Stacks of poker chips" width="1280" height="960" loading="lazy"></div><div><span class="when">Every Saturday · 1 PM</span><h3>Saturday Afternoon Hold'em</h3><p>Start your Saturday at the felt.</p><div class="tags"><span>$32 buy-in</span><span>Arrive early</span></div></div></article>
-    </div>
+    <div class="events" style="margin-top:0" data-cms="tourney-cards"></div>
 
     <section class="sec" aria-labelledby="faq-title">
       <div class="sec-head"><span class="kicker rv">Good to know</span><h2 id="faq-title" class="rv">Questions</h2></div>
       <div class="faq rv">
         <details><summary>Do I need to sign up ahead of time?</summary><p>Seats are limited, so arrive early. Call the floor at (209) 233-9369 to confirm the day's start time.</p></details>
-        <details><summary>What's the difference between the two tournaments?</summary><p>Both are No-Limit Hold'em. Wednesday starts at 6 PM with a $52 buy-in; Saturday starts at 1 PM with a $32 buy-in.</p></details>
+        <details><summary>What's the difference between the tournaments?</summary><p>Each tournament's start time and buy-in are in the schedule above. Call the floor if you want to know more about a specific event.</p></details>
         <details><summary>Are there cash games too?</summary><p>Yes. The poker room spreads Omaha and spread-limit Texas Hold'em cash games. Call to hear what's playing tonight.</p></details>
         <details><summary>How old do I have to be?</summary><p>You must be 21 or older with a valid ID.</p></details>
       </div>
@@ -125,6 +121,7 @@
   <button type="button" class="a11y-reset" id="a11y-reset">Reset to default</button>
 </div>
 
+<script src="assets/cms.js"></script>
 <script src="assets/site.js"></script>
 <script src="assets/app.js" defer></script>
 </body>

@@ -48,7 +48,7 @@
   </div>
 </header>
 
-<main id="main" tabindex="-1">
+<main id="main" tabindex="-1" data-cms-need="games tournaments">
   <section class="page-hero" aria-labelledby="pg-title">
     <div class="decor" data-depth="-80" style="left:4%;top:120px;width:84px"><div style="--r0:-16deg;--t:8s"><svg viewBox="0 0 70 98" aria-hidden="true"><use href="#card-a"/></svg></div></div>
     <div class="decor" data-depth="-120" style="right:5%;top:150px;width:60px"><div style="--r0:12deg;--t:6.5s"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#chip"/></svg></div></div>
@@ -58,70 +58,17 @@
       <p class="rv">California table games and a four-table poker room, dealt by our staff on real felt. New to a game? Ask the floor and they'll walk you through it before you play.</p>
     </div>
   </section>
-  <nav class="chipsnav" aria-label="Games on this page"><a href="#buster">21.5 Buster</a><a href="#spanish">21.5 Spanish</a><a href="#three-card">Three Card Poker</a><a href="#poker">Poker room</a><a href="#soon">Coming soon</a></nav>
+  <nav class="chipsnav" aria-label="Games on this page" id="games-nav"></nav>
 
   <div class="wrap">
-    <section class="gdetail" id="buster" aria-labelledby="g1">
-      <div class="frame rv"><div class="im"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Blurry_blackjack_table.jpg/960px-Blurry_blackjack_table.jpg" srcset="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Blurry_blackjack_table.jpg/500px-Blurry_blackjack_table.jpg 500w, https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Blurry_blackjack_table.jpg/960px-Blurry_blackjack_table.jpg 960w, https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Blurry_blackjack_table.jpg/1280px-Blurry_blackjack_table.jpg 1280w" sizes="(max-width: 760px) 92vw, 560px" alt="Cards being dealt on a blackjack table" width="1280" height="960" loading="lazy"></div></div>
-      <div>
-        <span class="kicker rv">Blackjack</span>
-        <h2 id="g1" class="rv">Pure 21.5 <span class="grad">Buster Blackjack</span></h2>
-        <p class="rv">Players and the player-dealer add up their cards and aim for 21.5. Get as close as you can without going over.</p>
-        <ul class="rules rv">
-          <li><svg aria-hidden="true"><use href="#spade"/></svg><span><b>Best hand:</b> an ace with a ten, jack, queen or king as your first two cards.</span></li>
-          <li><svg aria-hidden="true"><use href="#spade"/></svg><span><b>Pays 6 to 5</b> on that best hand.</span></li>
-          <li><svg aria-hidden="true"><use href="#spade"/></svg><span><b>Otherwise,</b> the closest to 21.5 without going over wins.</span></li>
-        </ul>
-      </div>
-    </section>
+    <p class="note" data-cms-fallback="games" hidden>The games didn't load. Refresh the page, or call the floor at <a href="tel:+12092339369">(209) 233-9369</a>.</p>
+<noscript><p class="note">Turn on JavaScript to see the games, or call the floor at <a href="tel:+12092339369">(209) 233-9369</a>.</p></noscript>
+    <div id="games-detail"></div>
 
-    <section class="gdetail flip" id="spanish" aria-labelledby="g2">
-      <div class="frame rv"><div class="im"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Double_down.JPG/960px-Double_down.JPG" srcset="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Double_down.JPG/500px-Double_down.JPG 500w, https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Double_down.JPG/960px-Double_down.JPG 960w, https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Double_down.JPG/1280px-Double_down.JPG 1280w" sizes="(max-width: 760px) 92vw, 560px" alt="A blackjack hand doubled down on green felt" width="1280" height="960" loading="lazy"></div></div>
-      <div>
-        <span class="kicker rv">Blackjack</span>
-        <h2 id="g2" class="rv">Pure 21.5 <span class="grad">Spanish Blackjack</span></h2>
-        <p class="rv">Played much like standard blackjack: beat the dealer's total without going over 21. The tens are taken out of the decks, but the picture cards stay in.</p>
-        <ul class="rules rv">
-          <li><svg aria-hidden="true"><use href="#heart"/></svg><span><b>Split</b> up to three times.</span></li>
-          <li><svg aria-hidden="true"><use href="#heart"/></svg><span><b>Double down</b> more than once.</span></li>
-          <li><svg aria-hidden="true"><use href="#heart"/></svg><span><b>21 always wins</b> automatically.</span></li>
-        </ul>
-      </div>
-    </section>
 
-    <section class="gdetail" id="three-card" aria-labelledby="g3">
-      <div class="frame rv"><div class="im"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Cards_-Deck_Playing.jpg/960px-Cards_-Deck_Playing.jpg" srcset="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Cards_-Deck_Playing.jpg/500px-Cards_-Deck_Playing.jpg 500w, https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Cards_-Deck_Playing.jpg/960px-Cards_-Deck_Playing.jpg 960w, https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Cards_-Deck_Playing.jpg/1280px-Cards_-Deck_Playing.jpg 1280w" sizes="(max-width: 760px) 92vw, 560px" alt="A hand spreading a deck of cards" width="1280" height="853" loading="lazy"></div></div>
-      <div>
-        <span class="kicker rv">Poker against the house</span>
-        <h2 id="g3" class="rv">Three Card Poker, <span class="grad">6 Card Bonus</span></h2>
-        <p class="rv">Three cards each and one hand against the dealer, with two popular bonus bets on the side.</p>
-        <ul class="rules rv">
-          <li><svg aria-hidden="true"><use href="#club"/></svg><span><b>Three Card bonus:</b> pays on a pair or better.</span></li>
-          <li><svg aria-hidden="true"><use href="#club"/></svg><span><b>Six Card bonus:</b> pays up to 1000 to 1.</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="gdetail flip" id="poker" aria-labelledby="g4">
-      <div class="frame rv"><div class="im"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Two_poker_cards_and_poker_chips_20170611.jpg/960px-Two_poker_cards_and_poker_chips_20170611.jpg" srcset="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Two_poker_cards_and_poker_chips_20170611.jpg/500px-Two_poker_cards_and_poker_chips_20170611.jpg 500w, https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Two_poker_cards_and_poker_chips_20170611.jpg/960px-Two_poker_cards_and_poker_chips_20170611.jpg 960w, https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Two_poker_cards_and_poker_chips_20170611.jpg/1280px-Two_poker_cards_and_poker_chips_20170611.jpg 1280w" sizes="(max-width: 760px) 92vw, 560px" alt="A player lifts two cards beside a pile of chips" width="1280" height="961" loading="lazy"></div></div>
-      <div>
-        <span class="kicker rv">Poker room</span>
-        <h2 id="g4" class="rv">Four tables, <span class="grad">every night</span></h2>
-        <p class="rv">Omaha and spread-limit Texas Hold'em cash games, plus No-Limit Hold'em tournaments every Wednesday and Saturday. Games change night to night, so call to hear what's playing.</p>
-        <ul class="rules rv">
-          <li><svg aria-hidden="true"><use href="#diamond"/></svg><span><b>Omaha</b> and <b>spread-limit Hold'em</b> cash games.</span></li>
-          <li><svg aria-hidden="true"><use href="#diamond"/></svg><span><b>Tournaments:</b> Wednesday 6 PM ($52) and Saturday 1 PM ($32).</span></li>
-        </ul>
-        <div class="center-btn rv" style="justify-content:flex-start;gap:12px;flex-wrap:wrap"><a class="btn gold mag" href="tel:+12092339369"><svg aria-hidden="true"><use href="#phone"/></svg>What's playing tonight?</a><a class="btn" href="tournaments.html">Tournaments<svg aria-hidden="true"><use href="#arrow"/></svg></a></div>
-      </div>
-    </section>
-
-    <section class="sec" id="soon" aria-labelledby="g5" style="padding-top:60px">
+    <section class="sec" id="games-soon" aria-labelledby="g5" style="padding-top:60px">
       <div class="sec-head"><span class="soonpill rv">Coming soon</span><h2 id="g5" class="rv">New tables <span class="grad">on the way</span></h2></div>
-      <div class="glist" style="grid-template-columns:1fr 1fr;margin-top:0">
-        <article class="gcard rv"><span class="suit"><svg aria-hidden="true"><use href="#spade"/></svg></span><h3>Baccarat</h3><p>One of the most popular games anywhere. Back the Player, the Banker or a tie, and the hand closest to nine wins.</p></article>
-        <article class="gcard rv"><span class="suit r"><svg aria-hidden="true"><use href="#heart"/></svg></span><h3>Ultimate Texas Hold'em</h3><p>Play heads-up against the dealer's hand. The Bad Beat bonus pays when the dealer has three of a kind or better, whether you win or lose the hand.</p></article>
-      </div>
+      <div class="glist" id="games-soon-list" style="grid-template-columns:1fr 1fr;margin-top:0"></div>
       <div class="center-btn rv"><a class="btn gold mag" href="index.html#signup">Get notified when they open<svg aria-hidden="true"><use href="#arrow"/></svg></a></div>
     </section>
   </div>
@@ -156,6 +103,7 @@
   <button type="button" class="a11y-reset" id="a11y-reset">Reset to default</button>
 </div>
 
+<script src="assets/cms.js"></script>
 <script src="assets/site.js"></script>
 <script src="assets/app.js" defer></script>
 </body>

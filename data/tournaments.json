@@ -1,0 +1,32 @@
+{
+  "tournaments": [
+    {
+      "name": "Wednesday Night Hold'em",
+      "game": "No-Limit Hold'em",
+      "day": "Wednesday",
+      "time": "6:00 PM",
+      "buy_in": 52,
+      "description": "No-Limit Hold'em in the poker room.",
+      "tags": [
+        "Arrive early"
+      ],
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Poker_Chips_%284041237051%29.jpg/1280px-Poker_Chips_%284041237051%29.jpg",
+      "image_alt": "Poker chips on a green table",
+      "active": true
+    },
+    {
+      "name": "Saturday Afternoon Hold'em",
+      "game": "No-Limit Hold'em",
+      "day": "Saturday",
+      "time": "1:00 PM",
+      "buy_in": 32,
+      "description": "Start your Saturday at the felt.",
+      "tags": [
+        "Arrive early"
+      ],
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Poker_chips_2.jpg/1280px-Poker_chips_2.jpg",
+      "image_alt": "Stacks of poker chips",
+      "active": true
+    }
+  ]
+}

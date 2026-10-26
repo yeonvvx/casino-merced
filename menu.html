@@ -48,7 +48,7 @@
   </div>
 </header>
 
-<main id="main" tabindex="-1">
+<main id="main" tabindex="-1" data-cms-need="menu">
   <section class="page-hero" aria-labelledby="pg-title">
     <div class="decor" data-depth="-80" style="left:5%;top:140px;width:62px"><div style="--r0:-10deg;--t:7s"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#chip"/></svg></div></div>
     <div class="decor" data-depth="-110" style="right:4%;top:120px;width:80px"><div style="--r0:14deg;--t:8s"><svg viewBox="0 0 70 98" aria-hidden="true"><use href="#card-k"/></svg></div></div>
@@ -58,54 +58,13 @@
       <p class="rv">Our bar and grill is right inside the casino. Order at the bar or from your seat, and we'll bring it to the table.</p>
     </div>
   </section>
-  <nav class="chipsnav" aria-label="Menu sections"><a href="#appetizers">Appetizers</a><a href="#mains">Good Stuff</a><a href="#sandwiches">Sandwiches</a><a href="#burgers">Burgers</a><a href="#specials">Daily specials</a></nav>
+  <nav class="chipsnav" aria-label="Menu sections" id="menu-nav"></nav>
 
   <div class="wrap">
-    <section class="menu-sec" id="appetizers" aria-labelledby="m1">
-      <div class="menu-head"><h2 id="m1" class="rv">Appetizers</h2><p class="rv">Made to share at the table.</p></div>
-      <div class="items">
-        <article class="item rv"><div class="top"><h3>Deep-Fried Mushrooms</h3><span class="price">$10.99</span></div><p>Golden fried mushrooms with chipotle aioli.</p></article>
-        <article class="item rv"><div class="top"><h3>Garlic Fries</h3><span class="price">$7.99</span></div><p>Thick-cut fries tossed with garlic and herbs.</p></article>
-        <article class="item rv"><div class="top"><h3>Philly Cheese Quesadilla</h3><span class="price">$13.99</span></div><p>Sliced Philly-style steak, peppers and onions in a flour tortilla.</p></article>
-        <article class="item rv"><div class="top"><h3>Chicken Wings</h3><span class="price">$12.99</span></div><span class="opt">6 pieces</span><p>Buffalo, orange or barbecue.</p></article>
-        <article class="item rv"><div class="top"><h3>Beer-Battered Mozzarella Sticks</h3><span class="price">$10.99</span></div><p>Served with marinara.</p></article>
-        <article class="item rv"><div class="top"><h3>Deep-Fried Bacon</h3><span class="price">$9.99</span></div><p>Bacon in a sweet batter, served with syrup.</p></article>
-        <article class="item rv"><div class="top"><h3>Nachos Supreme</h3><span class="price">$14.99</span></div><span class="opt">Steak, chicken or beef</span><p>Olives, tomatoes, lettuce, guacamole and sour cream.</p></article>
-        <article class="item rv"><div class="top"><h3>Sampler Special</h3><span class="price">$21.99</span></div><p>Three wings, quesadilla, garlic fries, fried mushrooms and mozzarella sticks.</p></article>
-      </div>
-    </section>
+    <p class="note" data-cms-fallback="menu" hidden>The menu didn't load. Refresh the page, or call the floor at <a href="tel:+12092339369">(209) 233-9369</a>.</p>
+<noscript><p class="note">Turn on JavaScript to see the menu, or call the floor at <a href="tel:+12092339369">(209) 233-9369</a>.</p></noscript>
+    <div id="menu-sections"></div>
 
-    <section class="menu-sec" id="mains" aria-labelledby="m2">
-      <div class="menu-head"><h2 id="m2" class="rv">The Good Stuff</h2><p class="rv">Dinner plates from the grill.</p></div>
-      <div class="items">
-        <article class="item rv"><div class="top"><h3>New York Steak</h3><span class="price">$26.99</span></div><span class="opt">8 oz</span><p>Topped with onions and mushrooms.</p></article>
-        <article class="item rv"><div class="top"><h3>Gourmet Sirloin</h3><span class="price">$24.99</span></div><p>Bacon-wrapped and grilled medium.</p></article>
-        <article class="item rv"><div class="top"><h3>Chicken Marsala</h3><span class="price">$19.99</span></div><p>Two chicken breast fillets in a mushroom, garlic and Marsala wine sauce.</p></article>
-        <article class="item rv"><div class="top"><h3>Chicken and Ribs Dinner</h3><span class="price">$24.99</span></div><p>An 8 oz chicken breast with a half rack of barbecue ribs.</p></article>
-        <article class="item rv"><div class="top"><h3>Atlantic Salmon</h3><span class="price">$23.99</span></div><span class="opt">8 oz</span><p>Grilled with lemon.</p></article>
-        <article class="item rv"><div class="top"><h3>Traditional Fish and Chips</h3><span class="price">$17.99</span></div><p>Three cod planks with fries.</p></article>
-        <article class="item rv"><div class="top"><h3>House Fettuccine</h3><span class="price">$17.99</span></div><span class="opt">Chicken, fish or shrimp</span><p>Creamy alfredo.</p></article>
-        <article class="item rv"><div class="top"><h3>Vegan Portabella</h3><span class="price">$15.99</span></div><p>With garlic and olive oil.</p><span class="tag">Vegan</span></article>
-      </div>
-    </section>
-
-    <section class="menu-sec" id="sandwiches" aria-labelledby="m3">
-      <div class="menu-head"><h2 id="m3" class="rv">Sandwiches</h2><p class="rv">Grilled or cold.</p></div>
-      <div class="items">
-        <article class="item rv"><div class="top"><h3>Steak Sandwich</h3><span class="price">$17.99</span></div><p>An 8 oz sirloin on a French roll, with fries.</p></article>
-        <article class="item rv"><div class="top"><h3>Garlic Chicken Sandwich</h3><span class="price">$14.99</span></div><p>On garlic bread with avocado and mushrooms.</p></article>
-        <article class="item rv"><div class="top"><h3>California Club</h3><span class="price">$14.99</span></div><p>Turkey, bacon, ham and tomato on gourmet bread.</p></article>
-        <article class="item rv"><div class="top"><h3>Hot Beef Sandwich</h3><span class="price">$15.99</span></div><span class="opt">Philly, French dip or BBQ</span><p>Your choice of style.</p></article>
-      </div>
-    </section>
-
-    <section class="menu-sec" id="burgers" aria-labelledby="m4">
-      <div class="special">
-        <div class="im rv"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Cheeseburger_and_fries_2.jpg/960px-Cheeseburger_and_fries_2.jpg" srcset="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Cheeseburger_and_fries_2.jpg/500px-Cheeseburger_and_fries_2.jpg 500w, https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Cheeseburger_and_fries_2.jpg/960px-Cheeseburger_and_fries_2.jpg 960w, https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Cheeseburger_and_fries_2.jpg/1280px-Cheeseburger_and_fries_2.jpg 1280w" sizes="(max-width: 760px) 92vw, 560px" alt="A cheeseburger with fries" width="1280" height="960" loading="lazy"></div>
-        <div class="box rv"><span class="kicker">Burgers</span><h2 id="m4">Burgers off the grill</h2><p>Served on a toasted bun with lettuce, tomato and onion.</p>
-          <ul class="burgers"><li><span>Classic Cheeseburger</span><span class="price">$13.99</span></li><li><span>Bacon Cheeseburger</span><span class="price">$15.99</span></li><li><span>Mushroom Swiss Burger</span><span class="price">$15.99</span></li><li><span>BBQ Bacon Burger</span><span class="price">$16.99</span></li></ul></div>
-      </div>
-    </section>
 
     <section class="menu-sec" id="specials" aria-labelledby="m5">
       <div class="board rv">
@@ -149,6 +108,7 @@
   <button type="button" class="a11y-reset" id="a11y-reset">Reset to default</button>
 </div>
 
+<script src="assets/cms.js"></script>
 <script src="assets/site.js"></script>
 <script src="assets/app.js" defer></script>
 </body>
