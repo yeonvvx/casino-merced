@@ -1,0 +1,25 @@
+/* Homepage scroll motion (assets/scroll.js). Without JS or with motion off,
+   everything here shows in its finished position. */
+.wm{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .04em .1em;margin:0 -.04em -.1em}
+.wi{display:inline-block;will-change:transform}
+
+.wipe{position:absolute;inset:0;z-index:2;background:linear-gradient(135deg,var(--gold),var(--gold-2));transform-origin:100% 50%;pointer-events:none}
+.wipe::after{content:"";position:absolute;inset:0;background:var(--red);transform-origin:100% 50%;transform:scaleX(var(--w2,0))}
+
+.scroll-bar{position:fixed;top:0;left:0;right:0;z-index:70;height:3px;background:linear-gradient(90deg,var(--gold-2),var(--gold));transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
+
+/* three cards that fan out as the section scrolls in */
+.fan{position:relative;height:clamp(230px,27vw,360px);max-width:760px;margin:0 auto 56px}
+.fan .fc{position:absolute;left:50%;top:50%;width:clamp(118px,15vw,196px);aspect-ratio:70/98;margin:calc(clamp(118px,15vw,196px)*-.7) 0 0 calc(clamp(118px,15vw,196px)*-.5);filter:drop-shadow(0 22px 30px rgba(0,0,0,.55))}
+.fan .fc svg{width:100%;height:100%}
+.fan .fc1{transform:translate(-112%,8%) rotate(-14deg)}
+.fan .fc2{transform:translate(0,-4%)}
+.fan .fc3{transform:translate(112%,8%) rotate(14deg)}
+
+/* giant line that slides across with the scroll */
+.bigline{overflow:hidden;padding:30px 0 10px;pointer-events:none}
+.bigline span{display:block;width:max-content;padding-left:4vw;font:700 clamp(72px,14vw,220px)/.9 var(--head);letter-spacing:-.05em;white-space:nowrap;color:transparent;-webkit-text-stroke:1.5px rgba(242,193,78,.6)}
+.bigline span b{color:var(--gold);-webkit-text-stroke:0;font-weight:inherit}
+
+html.rm .wipe,html.rm .scroll-bar{display:none}
+@media (prefers-reduced-motion:reduce){.wipe,.scroll-bar{display:none}}
