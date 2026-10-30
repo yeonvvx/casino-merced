@@ -89,14 +89,13 @@ function build(){
   // tournament board grows into place
   gsap.from('.board',{scale:.86,opacity:.3,borderRadius:60,ease:'none',scrollTrigger:{trigger:'.board',start:'top bottom',end:'top 45%',scrub:true}});
 
-  // photos: a gold-then-red panel wipes off while the photo settles from a zoom
+  // photos: a gold panel wipes off while the photo settles from a zoom
   $$('#dining .frame,.vmap').forEach(box=>{
     const w=box.querySelector('.wipe'),img=box.querySelector('img');
     const tl=gsap.timeline({scrollTrigger:{trigger:box,start:'top 75%',once:true}});
     tl.from(box,{y:40,duration:.6,ease:'expo.out'},0)
-      .to(w,{'--w2':1,duration:.35,ease:'power2.in'},0)
-      .to(w,{scaleX:0,duration:.75,ease:'expo.inOut'},.3)
-      .from(img,{scale:1.3,duration:1.6,ease:'expo.out'},.35);
+      .to(w,{scaleX:0,duration:.85,ease:'expo.inOut'},.1)
+      .from(img,{scale:1.3,duration:1.6,ease:'expo.out'},.15);
     gsap.fromTo(img,{yPercent:-6},{yPercent:6,ease:'none',scrollTrigger:{trigger:box,start:'top bottom',end:'bottom top',scrub:true}});
   });
 

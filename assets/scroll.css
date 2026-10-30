@@ -4,7 +4,6 @@
 .wi{display:inline-block;will-change:transform}
 
 .wipe{position:absolute;inset:0;z-index:2;background:linear-gradient(135deg,var(--gold),var(--gold-2));transform-origin:100% 50%;pointer-events:none}
-.wipe::after{content:"";position:absolute;inset:0;background:var(--red);transform-origin:100% 50%;transform:scaleX(var(--w2,0))}
 
 .scroll-bar{position:fixed;top:0;left:0;right:0;z-index:70;height:3px;background:linear-gradient(90deg,var(--gold-2),var(--gold));transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
 
