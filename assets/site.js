@@ -51,3 +51,11 @@ const still=()=>reduce||a11y.rm;window.__still=still;
   if(!f.dataset.endpoint){m.textContent="Online signup isn't connected yet. Email khonglai@casinomerced.com or call (209) 233-9369 and we'll add you to the list.";return}
   fetch(f.dataset.endpoint,{method:'POST',body:new FormData(f)}).then(r=>{if(!r.ok)throw 0;m.textContent="You're on the list!";f.reset()}).catch(()=>{m.textContent='Something went wrong. Please call (209) 233-9369.';m.classList.add('err')});
 });
+
+// Keep casual visitors out of the page source: no right-click menu (except in text fields, so pasting
+// still works) and no DevTools / view-source shortcuts. The browser's own menus still reach them.
+document.addEventListener('contextmenu',e=>{if(!e.target.closest('input,textarea,select,[contenteditable]'))e.preventDefault()});
+document.addEventListener('keydown',e=>{
+  const k=e.key.toLowerCase(),mod=e.ctrlKey||e.metaKey;
+  if(e.key==='F12'||(mod&&e.shiftKey&&['i','j','c'].includes(k))||(mod&&e.altKey&&['i','j','c','u'].includes(k))||(mod&&k==='u')){e.preventDefault();e.stopPropagation()}
+},true);
