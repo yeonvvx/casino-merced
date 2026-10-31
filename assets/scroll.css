@@ -1,0 +1,28 @@
+/* Scroll motion for every page (assets/scroll.js). Without JS or with motion off,
+   everything here shows in its finished position. */
+.wm{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .04em .1em;margin:0 -.04em -.1em}
+.wi{display:inline-block;will-change:transform}
+
+.wipe-host{position:relative}
+.wipe{position:absolute;inset:0;z-index:2;background:linear-gradient(135deg,var(--gold),var(--gold-2));transform-origin:100% 50%;pointer-events:none}
+
+.scroll-bar{position:fixed;top:0;left:0;right:0;z-index:70;height:3px;background:linear-gradient(90deg,var(--gold-2),var(--gold));transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
+
+/* three cards that fan out as the section scrolls in */
+.fan{position:relative;height:clamp(230px,27vw,360px);max-width:760px;margin:0 auto 56px}
+.fan .fc{position:absolute;left:50%;top:50%;width:clamp(118px,15vw,196px);aspect-ratio:448/704;margin:calc(clamp(118px,15vw,196px)*-.786) 0 0 calc(clamp(118px,15vw,196px)*-.5);filter:drop-shadow(0 22px 30px rgba(0,0,0,.55))}
+.fan .fc img{display:block;width:100%;height:100%}
+.fan .fc1{transform:translate(-112%,8%) rotate(-14deg)}
+.fan .fc2{transform:translate(0,-4%)}
+.fan .fc3{transform:translate(112%,8%) rotate(14deg)}
+@media (max-width:520px){.fan .fc1{transform:translate(-86%,8%) rotate(-12deg)}.fan .fc3{transform:translate(86%,8%) rotate(12deg)}}
+
+/* giant line that slides across with the scroll. The outline is a ring of
+   shadows under a background-coloured fill, so only each letter's outer edge
+   shows; text-stroke would trace the font's overlapping contours too. */
+.bigline{overflow:hidden;padding:30px 0 10px;pointer-events:none}
+.bigline span{display:block;width:max-content;padding-left:4vw;font:700 clamp(72px,14vw,220px)/.9 var(--head);letter-spacing:-.01em;word-spacing:.08em;white-space:nowrap;color:var(--bg);text-shadow:1.60px 0.00px 0 rgba(242,193,78,.7),1.48px 0.61px 0 rgba(242,193,78,.7),1.13px 1.13px 0 rgba(242,193,78,.7),0.61px 1.48px 0 rgba(242,193,78,.7),0.00px 1.60px 0 rgba(242,193,78,.7),-0.61px 1.48px 0 rgba(242,193,78,.7),-1.13px 1.13px 0 rgba(242,193,78,.7),-1.48px 0.61px 0 rgba(242,193,78,.7),-1.60px 0.00px 0 rgba(242,193,78,.7),-1.48px -0.61px 0 rgba(242,193,78,.7),-1.13px -1.13px 0 rgba(242,193,78,.7),-0.61px -1.48px 0 rgba(242,193,78,.7),-0.00px -1.60px 0 rgba(242,193,78,.7),0.61px -1.48px 0 rgba(242,193,78,.7),1.13px -1.13px 0 rgba(242,193,78,.7),1.48px -0.61px 0 rgba(242,193,78,.7)}
+.bigline span b{color:var(--gold);text-shadow:none;font-weight:inherit}
+
+html.rm .wipe,html.rm .scroll-bar{display:none}
+@media (prefers-reduced-motion:reduce){.wipe,.scroll-bar{display:none}}
