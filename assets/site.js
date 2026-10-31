@@ -52,9 +52,11 @@ const still=()=>reduce||a11y.rm;window.__still=still;
   fetch(f.dataset.endpoint,{method:'POST',body:new FormData(f)}).then(r=>{if(!r.ok)throw 0;m.textContent="You're on the list!";f.reset()}).catch(()=>{m.textContent='Something went wrong. Please call (209) 233-9369.';m.classList.add('err')});
 });
 
-// Keep casual visitors out of the page source: no right-click menu (except in text fields, so pasting
+// Keep casual visitors out of the page source and text: no selecting or copying, no right-click menu (except in text fields, so pasting
 // still works) and no DevTools / view-source shortcuts. The browser's own menus still reach them.
-document.addEventListener('contextmenu',e=>{if(!e.target.closest('input,textarea,select,[contenteditable]'))e.preventDefault()});
+const inField=e=>e.target.closest&&e.target.closest('input,textarea,select,[contenteditable]');
+['copy','cut','selectstart','dragstart'].forEach(t=>document.addEventListener(t,e=>{if(!inField(e))e.preventDefault()}));
+document.addEventListener('contextmenu',e=>{if(!inField(e))e.preventDefault()});
 document.addEventListener('keydown',e=>{
   const k=e.key.toLowerCase(),mod=e.ctrlKey||e.metaKey;
   if(e.key==='F12'||(mod&&e.shiftKey&&['i','j','c'].includes(k))||(mod&&e.altKey&&['i','j','c','u'].includes(k))||(mod&&k==='u')){e.preventDefault();e.stopPropagation()}

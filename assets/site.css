@@ -23,6 +23,9 @@ img{display:block;max-width:100%}
 /* make photos and art harder to grab: no right-click "Save image", no dragging them out, no long-press
    save on phones. Clicks pass through to any link around an image. */
 img{-webkit-user-select:none;user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none;pointer-events:none}
+/* text can't be selected or copied, except inside form fields */
+body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+input,textarea,select,[contenteditable]{-webkit-user-select:text;user-select:text}
 h1,h2,h3{font-family:var(--head);color:var(--white);font-weight:600;letter-spacing:-.025em;line-height:1.08;text-wrap:balance}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
