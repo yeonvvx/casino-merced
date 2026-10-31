@@ -114,8 +114,10 @@
     {
       "name": "Ultimate Texas Hold'em",
       "nav_label": "Ultimate Texas Hold'em",
+      "gold_words": "Texas Hold'em",
       "id": "ultimate-texas-holdem",
-      "status": "soon",
+      "status": "open",
+      "category": "Poker against the house",
       "suit": "heart",
       "card_text": "Heads-up against the dealer, with a Bad Beat bonus that pays win or lose.",
       "description": "Play heads-up against the dealer's hand. The Bad Beat bonus pays when the dealer has three of a kind or better, whether you win or lose the hand.",
