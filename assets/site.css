@@ -47,7 +47,7 @@ h1,h2,h3{font-family:var(--head);color:var(--white);font-weight:600;letter-spaci
 .nav.solid{background:rgba(0,0,0,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--edge-soft)}
 .nav .wrap{display:flex;align-items:center;gap:20px;min-height:68px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;color:#fff;font:700 16px/1 var(--head);letter-spacing:.02em}
-.brand svg{width:34px;height:34px}
+.brand svg,.brand img{width:34px;height:34px}
 .links{display:flex;gap:6px}
 .links a{padding:10px 12px;border-radius:8px;font-size:14px;font-weight:500;color:var(--text);text-decoration:none;transition:color 200ms ease,background-color 200ms ease}
 .links a:hover{color:#fff;background:rgba(242,193,78,.12)}
