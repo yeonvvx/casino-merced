@@ -64,7 +64,8 @@ h1,h2,h3{font-family:var(--head);color:var(--white);font-weight:600;letter-spaci
 
 /* decor: floating cards and chips */
 .decor{position:absolute;pointer-events:none;z-index:0;will-change:transform}
-.decor svg{display:block;filter:drop-shadow(0 18px 24px rgba(0,0,0,.45))}
+.decor svg,.decor img{display:block;filter:drop-shadow(0 18px 24px rgba(0,0,0,.45))}
+.decor img{width:100%;height:auto}
 @keyframes float{0%,100%{transform:translateY(0) rotate(var(--r0,0deg))}50%{transform:translateY(-14px) rotate(calc(var(--r0,0deg) + 4deg))}}
 .decor > div{animation:float var(--t,7s) ease-in-out infinite;animation-delay:var(--dl,0s)}
 
