@@ -128,9 +128,9 @@ function build(){
   $$('#tourney-rows').forEach(tb=>gsap.from(tb.children,{x:-36,opacity:0,duration:.7,ease:'expo.out',stagger:.09,scrollTrigger:{trigger:tb,start:'top 88%',toggleActions:'play none none reverse'}}));
   $$('.events .ev').forEach((e,i)=>gsap.fromTo(e,{x:i%2?60:-60,opacity:0},{x:0,opacity:1,duration:.9,ease:'expo.out',scrollTrigger:{trigger:e,start:'top 90%',toggleActions:'play none none reverse'}}));
 
-  // contact: the info cards flip up into place one after another
+  // contact: the info cards rise into place one after another
   const cc=$$('.ccard');
-  if(cc.length)gsap.from(cc,{rotationX:-55,y:60,opacity:0,transformPerspective:900,transformOrigin:'50% 100%',duration:1,ease:'expo.out',stagger:.12,
+  if(cc.length)gsap.from(cc,{y:40,opacity:0,duration:.9,ease:'expo.out',stagger:.1,
     scrollTrigger:{trigger:cc[0],start:'top 90%',toggleActions:'play none none reverse'}});
 
   // the grill badge drifts in a slow loop tied to the scroll position
