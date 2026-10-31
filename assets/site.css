@@ -20,6 +20,9 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;bac
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:8px}
 a{color:inherit}
 img{display:block;max-width:100%}
+/* make photos and art harder to grab: no right-click "Save image", no dragging them out, no long-press
+   save on phones. Clicks pass through to any link around an image. */
+img{-webkit-user-select:none;user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none;pointer-events:none}
 h1,h2,h3{font-family:var(--head);color:var(--white);font-weight:600;letter-spacing:-.025em;line-height:1.08;text-wrap:balance}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
