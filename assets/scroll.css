@@ -1,8 +1,9 @@
-/* Homepage scroll motion (assets/scroll.js). Without JS or with motion off,
+/* Scroll motion for every page (assets/scroll.js). Without JS or with motion off,
    everything here shows in its finished position. */
 .wm{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .04em .1em;margin:0 -.04em -.1em}
 .wi{display:inline-block;will-change:transform}
 
+.wipe-host{position:relative}
 .wipe{position:absolute;inset:0;z-index:2;background:linear-gradient(135deg,var(--gold),var(--gold-2));transform-origin:100% 50%;pointer-events:none}
 
 .scroll-bar{position:fixed;top:0;left:0;right:0;z-index:70;height:3px;background:linear-gradient(90deg,var(--gold-2),var(--gold));transform-origin:0 50%;transform:scaleX(0);pointer-events:none}
