@@ -52,7 +52,6 @@
           "text": "automatically."
         }
       ],
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Double_down.JPG/1280px-Double_down.JPG",
       "image_alt": "A blackjack hand doubled down on green felt",
       "show_tournaments": false
     },
@@ -115,7 +114,7 @@
       "name": "Ultimate Texas Hold'em",
       "nav_label": "Ultimate Texas Hold'em",
       "id": "ultimate-texas-holdem",
-      "status": "soon",
+      "status": "open",
       "suit": "heart",
       "card_text": "Heads-up against the dealer, with a Bad Beat bonus that pays win or lose.",
       "description": "Play heads-up against the dealer's hand. The Bad Beat bonus pays when the dealer has three of a kind or better, whether you win or lose the hand.",
