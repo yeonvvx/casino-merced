@@ -5,7 +5,9 @@
 const $=id=>document.getElementById(id);
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-const SUITS={spade:'',club:'',heart:'r',diamond:'r'};
+// Outlined suit symbols, all in gold; \uFE0E keeps them as text rather than emoji.
+const PIPS={spade:'\u2664',heart:'\u2661',club:'\u2667',diamond:'\u2662'};
+const pip=(suit,cls='pip')=>`<span class="${cls}" aria-hidden="true">${PIPS[suit]||PIPS.spade}\uFE0E</span>`;
 
 // Wikimedia thumbnails get a srcset; uploaded images are used as-is.
 function img(src,alt,sizes){
@@ -43,14 +45,14 @@ function renderTourneys(ts){
   document.querySelectorAll('[data-cms="tourney-cards"]').forEach(e=>{e.innerHTML=cards});
   const rows=$('tourney-rows');
   if(rows)rows.innerHTML=ts.map(t=>`<tr><td data-l="Day">${esc(t.day)}</td><td data-l="Start" class="gold">${esc(t.time)}</td><td data-l="Game">${esc(t.game||'')}</td><td data-l="Buy-in" class="gold">${money(t.buy_in)}</td></tr>`).join('')||'<tr><td colspan="4">No tournaments are scheduled right now. Call the floor for updates.</td></tr>';
-  document.querySelectorAll('[data-cms="tourney-line"]').forEach(e=>{e.innerHTML=ts.length?`<svg aria-hidden="true"><use href="#diamond"/></svg><span><b>Tournaments:</b> ${esc(ts.map(t=>`${t.day} ${shortTime(t.time)}${money(t.buy_in)?` (${money(t.buy_in)})`:''}`).join(' and '))}.</span>`:'';e.hidden=!ts.length});
+  document.querySelectorAll('[data-cms="tourney-line"]').forEach(e=>{e.innerHTML=ts.length?`${pip('diamond')}<span><b>Tournaments:</b> ${esc(ts.map(t=>`${t.day} ${shortTime(t.time)}${money(t.buy_in)?` (${money(t.buy_in)})`:''}`).join(' and '))}.</span>`:'';e.hidden=!ts.length});
 }
 
 // ---- games ----
 function renderGames(gs){
   gs=(gs||[]).filter(g=>g&&g.name);
   const open=gs.filter(g=>g.status!=='soon'),soon=gs.filter(g=>g.status==='soon');
-  const suit=g=>`<span class="suit ${SUITS[g.suit]||''}"><svg aria-hidden="true"><use href="#${esc(g.suit||'spade')}"/></svg></span>`;
+  const suit=g=>pip(g.suit,'suit');
   const home=$('home-games');
   if(home)home.innerHTML=gs.map(g=>`<article class="gcard rv">${g.status==='soon'?'<span class="soon">Soon</span>':''}${suit(g)}<h3>${esc(g.name)}</h3><p>${esc(g.card_text||g.description||'')}</p></article>`).join('');
   const A=$('trackA'),B=$('trackB');
@@ -62,12 +64,12 @@ function renderGames(gs){
   if(nav)nav.innerHTML=open.map(g=>`<a href="#${esc(g.id)}">${esc(g.nav_label||g.name)}</a>`).join('')+(soon.length?'<a href="#games-soon">Coming soon</a>':'');
   const det=$('games-detail');
   if(det)det.innerHTML=open.map((g,i)=>`<section class="gdetail${i%2?' flip':''}" id="${esc(g.id)}" aria-labelledby="g-${esc(g.id)}">
-      <div class="frame rv"><div class="im${g.image?'':' nophoto'}">${g.image?img(g.image,g.image_alt,'(max-width: 760px) 92vw, 560px'):`<svg aria-hidden="true"><use href="#${esc(g.suit||'spade')}"/></svg>`}</div></div>
+      <div class="frame rv"><div class="im${g.image?'':' nophoto'}">${g.image?img(g.image,g.image_alt,'(max-width: 760px) 92vw, 560px'):pip(g.suit)}</div></div>
       <div>
         ${g.category?`<span class="kicker rv">${esc(g.category)}</span>`:''}
         <h2 id="g-${esc(g.id)}" class="rv">${goldName(g.name,g.gold_words)}</h2>
         <p class="rv">${esc(g.description)}</p>
-        <ul class="rules rv">${(g.rules||[]).filter(r=>r&&(r.bold||r.text)).map(r=>`<li><svg aria-hidden="true"><use href="#${esc(g.suit||'spade')}"/></svg><span>${r.bold?`<b>${esc(r.bold)}</b> `:''}${esc(r.text||'')}</span></li>`).join('')}${g.show_tournaments?'<li data-cms="tourney-line"></li>':''}</ul>
+        <ul class="rules rv">${(g.rules||[]).filter(r=>r&&(r.bold||r.text)).map(r=>`<li>${pip(g.suit)}<span>${r.bold?`<b>${esc(r.bold)}</b> `:''}${esc(r.text||'')}</span></li>`).join('')}${g.show_tournaments?'<li data-cms="tourney-line"></li>':''}</ul>
         ${g.show_tournaments?`<div class="center-btn rv" style="justify-content:flex-start;gap:12px;flex-wrap:wrap"><a class="btn gold mag" href="tel:+12092339369"><svg aria-hidden="true"><use href="#phone"/></svg>What's playing tonight?</a><a class="btn" href="tournaments.html">Tournaments<svg aria-hidden="true"><use href="#arrow"/></svg></a></div>`:''}
       </div>
     </section>`).join('');
