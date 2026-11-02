@@ -7,6 +7,9 @@ const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 // Outlined suit symbols, all in gold; \uFE0E keeps them as text rather than emoji.
 const PIPS={spade:'\u2664',heart:'\u2661',club:'\u2667',diamond:'\u2662'};
+const ORDER=['spade','heart','club','diamond'];
+// the suit n steps after `suit`, so neighbouring bullets never repeat
+const nextSuit=(suit,n)=>ORDER[(Math.max(0,ORDER.indexOf(suit))+n)%4];
 const pip=(suit,cls='pip')=>`<span class="${cls}" aria-hidden="true">${PIPS[suit]||PIPS.spade}\uFE0E</span>`;
 
 // Wikimedia thumbnails get a srcset; uploaded images are used as-is.
@@ -45,7 +48,7 @@ function renderTourneys(ts){
   document.querySelectorAll('[data-cms="tourney-cards"]').forEach(e=>{e.innerHTML=cards});
   const rows=$('tourney-rows');
   if(rows)rows.innerHTML=ts.map(t=>`<tr><td data-l="Day">${esc(t.day)}</td><td data-l="Start" class="gold">${esc(t.time)}</td><td data-l="Game">${esc(t.game||'')}</td><td data-l="Buy-in" class="gold">${money(t.buy_in)}</td></tr>`).join('')||'<tr><td colspan="4">No tournaments are scheduled right now. Call the floor for updates.</td></tr>';
-  document.querySelectorAll('[data-cms="tourney-line"]').forEach(e=>{e.innerHTML=ts.length?`${pip('diamond')}<span><b>Tournaments:</b> ${esc(ts.map(t=>`${t.day} ${shortTime(t.time)}${money(t.buy_in)?` (${money(t.buy_in)})`:''}`).join(' and '))}.</span>`:'';e.hidden=!ts.length});
+  document.querySelectorAll('[data-cms="tourney-line"]').forEach(e=>{e.innerHTML=ts.length?`${pip(e.dataset.suit||'diamond')}<span><b>Tournaments:</b> ${esc(ts.map(t=>`${t.day} ${shortTime(t.time)}${money(t.buy_in)?` (${money(t.buy_in)})`:''}`).join(' and '))}.</span>`:'';e.hidden=!ts.length});
 }
 
 // ---- games ----
@@ -69,7 +72,7 @@ function renderGames(gs){
         ${g.category?`<span class="kicker rv">${esc(g.category)}</span>`:''}
         <h2 id="g-${esc(g.id)}" class="rv">${goldName(g.name,g.gold_words)}</h2>
         <p class="rv">${esc(g.description)}</p>
-        <ul class="rules rv">${(g.rules||[]).filter(r=>r&&(r.bold||r.text)).map(r=>`<li>${pip(g.suit)}<span>${r.bold?`<b>${esc(r.bold)}</b> `:''}${esc(r.text||'')}</span></li>`).join('')}${g.show_tournaments?'<li data-cms="tourney-line"></li>':''}</ul>
+        <ul class="rules rv">${(g.rules||[]).filter(r=>r&&(r.bold||r.text)).map((r,i)=>`<li>${pip(nextSuit(g.suit,i))}<span>${r.bold?`<b>${esc(r.bold)}</b> `:''}${esc(r.text||'')}</span></li>`).join('')}${g.show_tournaments?`<li data-cms="tourney-line" data-suit="${nextSuit(g.suit,(g.rules||[]).filter(r=>r&&(r.bold||r.text)).length)}"></li>`:''}</ul>
         ${g.show_tournaments?`<div class="center-btn rv" style="justify-content:flex-start;gap:12px;flex-wrap:wrap"><a class="btn gold mag" href="tel:+12092339369"><svg aria-hidden="true"><use href="#phone"/></svg>What's playing tonight?</a><a class="btn" href="tournaments.html">Tournaments<svg aria-hidden="true"><use href="#arrow"/></svg></a></div>`:''}
       </div>
     </section>`).join('');
