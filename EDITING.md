@@ -20,4 +20,8 @@ Tournament times use Merced time and the format `6:00 PM`. The countdown, the
 flip board, the schedule table and the "twice a week" wording all update from
 the tournament list. Turn off **Show on the site** to hide one without deleting it.
 
+To hide a game without deleting it, set its **Status** to **Off (saved, not shown)**; set it back
+to **On the site** to show it again. Each game's **BGC approvals** (base-game name and New BGC ID)
+are shown in small print wherever the game appears, as the law requires.
+
 The editor's fields are defined in `.pages.yml`.

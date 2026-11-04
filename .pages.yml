@@ -145,14 +145,17 @@ content:
               message: Use lowercase letters, numbers and dashes only.
           - name: status
             label: Status
+            description: Choose Off to keep a game saved without showing it anywhere on the site.
             type: select
             default: open
             options:
               values:
                 - value: open
-                  label: Open now
+                  label: On the site
                 - value: soon
                   label: Coming soon
+                - value: off
+                  label: Off (saved, not shown)
           - name: category
             label: Small label above the name
             description: Optional, e.g. "Blackjack" or "Poker room".

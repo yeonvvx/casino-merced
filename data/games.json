@@ -176,6 +176,27 @@
       "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Poker_Chips_%284041237051%29.jpg/1280px-Poker_Chips_%284041237051%29.jpg",
       "image_alt": "Poker chips on a green table",
       "show_tournaments": false
+    },
+    {
+      "name": "Mexican Poker",
+      "bgc": [
+        {
+          "game": "Mexican Poker",
+          "id": "GEGR-001834"
+        }
+      ],
+      "nav_label": "Mexican Poker",
+      "gold_words": "Poker",
+      "id": "mexican-poker",
+      "status": "off",
+      "category": "Poker",
+      "suit": "club",
+      "card_text": "",
+      "description": "",
+      "rules": [],
+      "image": "",
+      "image_alt": "",
+      "show_tournaments": false
     }
   ]
 }

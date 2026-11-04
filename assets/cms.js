@@ -57,7 +57,8 @@ function renderTourneys(ts){
 const bgcList=g=>(g.bgc||[]).filter(b=>b&&b.id);
 const bgc=(g,cls='bgc')=>{const l=bgcList(g);return l.length?`<p class="${cls}">${l.map(b=>`${esc(b.game)} <span>${esc(b.id)}</span>`).join(' · ')}</p>`:''};
 function renderGames(gs){
-  gs=(gs||[]).filter(g=>g&&g.name);
+  // games set to Off stay saved in the CMS but aren't shown anywhere
+  gs=(gs||[]).filter(g=>g&&g.name&&g.status!=='off');
   const open=gs.filter(g=>g.status!=='soon'),soon=gs.filter(g=>g.status==='soon');
   const suit=g=>pip(g.suit,'suit');
   const home=$('home-games');
