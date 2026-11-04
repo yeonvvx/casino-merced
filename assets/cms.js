@@ -62,7 +62,10 @@ function renderGames(gs){
   const open=gs.filter(g=>g.status!=='soon'),soon=gs.filter(g=>g.status==='soon');
   const suit=g=>pip(g.suit,'suit');
   const home=$('home-games');
-  if(home)home.innerHTML=gs.map(g=>`<article class="gcard rv">${g.status==='soon'?'<span class="soon">Soon</span>':''}${suit(g)}<h3>${esc(g.name)}</h3><p>${esc(g.card_text||g.description||'')}</p>${bgc(g)}</article>`).join('');
+  // A split game (the poker room) becomes one card per approved game, each with only its own ID.
+  // Suits step through the four in order so no two neighbouring cards match, across or down.
+  const cards=gs.flatMap(g=>g.split_card?bgcList(g).filter(b=>b.card_text).map(b=>({name:b.game,card_text:b.card_text,bgc:[b],status:g.status})):[g]);
+  if(home)home.innerHTML=cards.map((g,i)=>`<article class="gcard rv">${g.status==='soon'?'<span class="soon">Soon</span>':''}${pip(ORDER[i%4],'suit')}<h3>${esc(g.name)}</h3><p>${esc(g.card_text||g.description||'')}</p>${bgc(g)}</article>`).join('');
   const A=$('trackA'),B=$('trackB');
   if(A&&B){const withImg=gs.filter(g=>g.image);
     // The strip is aria-hidden and the same games are linked in the cards below, so tiles stay out of the tab order.

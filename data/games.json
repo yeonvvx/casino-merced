@@ -103,25 +103,30 @@
       "bgc": [
         {
           "game": "Omaha",
-          "id": "GEGR-000073"
+          "id": "GEGR-000073",
+          "card_text": "Four hole cards. Use exactly two of them with three from the board."
         },
         {
           "game": "Omaha High-Low Split",
-          "id": "GEGR-000074"
+          "id": "GEGR-000074",
+          "card_text": "Omaha with the pot split between the best high hand and the best qualifying low."
         },
         {
           "game": "Texas Hold'em",
-          "id": "GEGR-000075"
+          "id": "GEGR-000075",
+          "card_text": "Two hole cards and five shared on the board. Best five-card hand wins."
         },
         {
           "game": "Texas Hold'em High/Low Split",
-          "id": "GEGR-000076"
+          "id": "GEGR-000076",
+          "card_text": "Hold'em with the pot split between the best high hand and the best qualifying low."
         },
         {
           "game": "Poker Tournaments",
           "id": "GETR-000008"
         }
       ],
+      "split_card": true,
       "nav_label": "Poker room",
       "id": "poker",
       "status": "open",

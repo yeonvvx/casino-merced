@@ -127,6 +127,14 @@ content:
                 pattern:
                   regex: "^GE[A-Z]{2}-[0-9]{6}$"
                   message: Use the format GEGR-000070.
+              - name: card_text
+                label: Home page card text
+                description: Only used when "Split into one home page card per approval" is on. Rows without text get no card of their own.
+                type: text
+          - name: split_card
+            label: Split into one home page card per approval
+            description: For the poker room. Each BGC approval with card text gets its own home page card with just its own ID.
+            type: boolean
           - name: nav_label
             label: Short name for the buttons at the top
             description: Optional, e.g. "21.5 Buster". Leave empty to use the full name.
