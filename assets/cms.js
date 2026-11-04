@@ -68,9 +68,11 @@ function renderGames(gs){
   if(home)home.innerHTML=cards.map((g,i)=>`<article class="gcard rv">${g.status==='soon'?'<span class="soon">Soon</span>':''}${pip(ORDER[i%4],'suit')}<h3>${esc(g.name)}</h3><p>${esc(g.card_text||g.description||'')}</p>${bgc(g)}</article>`).join('');
   const A=$('trackA'),B=$('trackB');
   if(A&&B){const withImg=cards.filter(g=>g.image);
-    // The strip is aria-hidden and the same games are linked in the cards below, so tiles stay out of the tab order.
-    const tile=(g,i)=>`<a class="tile ${i%2?'v':''}" href="games.html#${g.status==='soon'?'games-soon':esc(g.id)}" tabindex="-1"><img src="${esc(thumb(g.image,500))}" alt="" loading="lazy" width="640" height="480"${g.crop!=null?` style="transform-origin:${['0% 20%','100% 80%','20% 100%','80% 0%'][g.crop%4]};transform:scale(1.45)"`:''}>${g.status==='soon'?'<em>Soon</em>':''}<span>${esc(g.name)}${bgcList(g).length?`<small>${bgcList(g).map(b=>esc(b.id)).join(' · ')}</small>`:''}</span></a>`;
-    const a=withImg.map(tile).join(''),b=[...withImg].reverse().map(tile).join('');A.innerHTML=a+a;B.innerHTML=b+b}
+    // The strip is the home page's list of games: the first run of the top row is a normal list of links;
+    // the repeat that makes it loop, and the reversed bottom row, are hidden from screen readers and the tab order.
+    const tile=(g,i,hide)=>`<a class="tile ${i%2?'v':''}" href="games.html#${g.status==='soon'?'games-soon':esc(g.id)}"${hide?' tabindex="-1" aria-hidden="true"':''}><img src="${esc(thumb(g.image,500))}" alt="" loading="lazy" width="640" height="480"${g.crop!=null?` style="transform-origin:${['0% 20%','100% 80%','20% 100%','80% 0%'][g.crop%4]};transform:scale(1.45)"`:''}>${g.status==='soon'?'<em>Soon</em>':''}<span>${esc(g.name)}${bgcList(g).length?`<small>${bgcList(g).map(b=>esc(b.id)).join(' · ')}</small>`:''}</span></a>`;
+    const run=(list,hide)=>list.map((g,i)=>tile(g,i,hide)).join('');
+    A.innerHTML=run(withImg,false)+run(withImg,true);B.innerHTML=run([...withImg].reverse(),true).repeat(2);B.setAttribute('aria-hidden','true')}
   const nav=$('games-nav');
   if(nav)nav.innerHTML=open.map(g=>`<a href="#${esc(g.id)}">${esc(g.nav_label||g.name)}</a>`).join('')+(soon.length?'<a href="#games-soon">Coming soon</a>':'');
   const det=$('games-detail');
