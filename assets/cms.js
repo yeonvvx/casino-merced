@@ -62,14 +62,14 @@ function renderGames(gs){
   const open=gs.filter(g=>g.status!=='soon'),soon=gs.filter(g=>g.status==='soon');
   const suit=g=>pip(g.suit,'suit');
   const home=$('home-games');
-  // A split game (the poker room) becomes one card per approved game, each with only its own ID.
+  // A split game (the poker room) becomes one card and one strip tile per approved game, each with only its own ID.
   // Suits step through the four in order so no two neighbouring cards match, across or down.
-  const cards=gs.flatMap(g=>g.split_card?bgcList(g).filter(b=>b.card_text).map(b=>({name:b.game,card_text:b.card_text,bgc:[b],status:g.status})):[g]);
+  const cards=gs.flatMap(g=>g.split_card?bgcList(g).filter(b=>b.card_text).map((b,n)=>({name:b.game,card_text:b.card_text,bgc:[b],status:g.status,id:g.id,image:g.image,crop:n})):[g]);
   if(home)home.innerHTML=cards.map((g,i)=>`<article class="gcard rv">${g.status==='soon'?'<span class="soon">Soon</span>':''}${pip(ORDER[i%4],'suit')}<h3>${esc(g.name)}</h3><p>${esc(g.card_text||g.description||'')}</p>${bgc(g)}</article>`).join('');
   const A=$('trackA'),B=$('trackB');
-  if(A&&B){const withImg=gs.filter(g=>g.image);
+  if(A&&B){const withImg=cards.filter(g=>g.image);
     // The strip is aria-hidden and the same games are linked in the cards below, so tiles stay out of the tab order.
-    const tile=(g,i)=>`<a class="tile ${i%2?'v':''}" href="games.html#${g.status==='soon'?'games-soon':esc(g.id)}" tabindex="-1"><img src="${esc(thumb(g.image,500))}" alt="" loading="lazy" width="640" height="480">${g.status==='soon'?'<em>Soon</em>':''}<span>${esc(g.name)}${bgcList(g).length?`<small>${bgcList(g).map(b=>esc(b.id)).join(' · ')}</small>`:''}</span></a>`;
+    const tile=(g,i)=>`<a class="tile ${i%2?'v':''}" href="games.html#${g.status==='soon'?'games-soon':esc(g.id)}" tabindex="-1"><img src="${esc(thumb(g.image,500))}" alt="" loading="lazy" width="640" height="480"${g.crop!=null?` style="transform-origin:${['0% 20%','100% 80%','20% 100%','80% 0%'][g.crop%4]};transform:scale(1.45)"`:''}>${g.status==='soon'?'<em>Soon</em>':''}<span>${esc(g.name)}${bgcList(g).length?`<small>${bgcList(g).map(b=>esc(b.id)).join(' · ')}</small>`:''}</span></a>`;
     const a=withImg.map(tile).join(''),b=[...withImg].reverse().map(tile).join('');A.innerHTML=a+a;B.innerHTML=b+b}
   const nav=$('games-nav');
   if(nav)nav.innerHTML=open.map(g=>`<a href="#${esc(g.id)}">${esc(g.nav_label||g.name)}</a>`).join('')+(soon.length?'<a href="#games-soon">Coming soon</a>':'');
