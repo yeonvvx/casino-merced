@@ -216,6 +216,42 @@ content:
             type: boolean
             default: false
 
+  - name: activities
+    label: Gaming activities
+    type: file
+    path: data/activities.json
+    format: json
+    fields:
+      - name: activities
+        label: Approved gaming activities
+        description: Promotions, jackpots and tournaments approved by the Bureau of Gambling Control. Turn on "Show on the site" for the ones that are running; they appear in the Poker room section of the Games page with their BGC ID.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name} {id}"
+        fields:
+          - name: name
+            label: Name of gaming activity
+            description: Exactly as on the BGC list.
+            type: string
+            required: true
+          - name: id
+            label: New BGC ID
+            description: e.g. GEAR-001324 or GETR-000008
+            type: string
+            required: true
+            pattern:
+              regex: "^GE[A-Z]{2}-[0-9]{6}$"
+              message: Use the format GEAR-001324.
+          - name: description
+            label: Short description
+            description: Optional. One line about how it works.
+            type: text
+          - name: active
+            label: Show on the site
+            type: boolean
+            default: false
   - name: tournaments
     label: Tournaments
     type: file

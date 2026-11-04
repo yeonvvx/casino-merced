@@ -1,0 +1,64 @@
+{
+  "activities": [
+    {
+      "name": "Royal Flush Jackpot",
+      "id": "GEAR-001324",
+      "description": "",
+      "active": false
+    },
+    {
+      "name": "Splash Pot Promotion",
+      "id": "GEAR-001323",
+      "description": "",
+      "active": false
+    },
+    {
+      "name": "Bargain Buy-In Promotion",
+      "id": "GEAR-000014",
+      "description": "",
+      "active": false
+    },
+    {
+      "name": "High Hand Promotion",
+      "id": "GEAR-001352",
+      "description": "",
+      "active": false
+    },
+    {
+      "name": "Omaha High/Low Scooper Promotion",
+      "id": "GEAR-000018",
+      "description": "",
+      "active": false
+    },
+    {
+      "name": "Omaha Progressive JackPot",
+      "id": "GEAR-000016",
+      "description": "",
+      "active": false
+    },
+    {
+      "name": "Pocket Pairs Cracked",
+      "id": "GEAR-000019",
+      "description": "",
+      "active": false
+    },
+    {
+      "name": "Poker Tournaments",
+      "id": "GETR-000008",
+      "description": "Weekly No-Limit Hold'em tournaments. See the Tournaments page for days, times and buy-ins.",
+      "active": false
+    },
+    {
+      "name": "Texas Hold'em High Hand Promotion",
+      "id": "GEAR-000017",
+      "description": "",
+      "active": false
+    },
+    {
+      "name": "Texas Hold'em Progressive JackPot",
+      "id": "GEAR-000015",
+      "description": "",
+      "active": false
+    }
+  ]
+}

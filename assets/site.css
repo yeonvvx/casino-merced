@@ -439,3 +439,5 @@ a.tile{display:block;color:inherit;text-decoration:none;transition:box-shadow 20
 .gdetail .bgc{margin-top:-4px}
 .tonight .bgc{margin-top:12px}
 .tile span small{display:block;margin-top:3px;font:500 9.5px/1.3 var(--body);letter-spacing:.04em;color:rgba(255,255,255,.75)}
+.acts-title{font-size:17px;margin:22px 0 -8px;color:#fff}
+.rules li small.bgc{display:block;padding-top:4px}

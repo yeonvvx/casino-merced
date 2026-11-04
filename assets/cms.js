@@ -51,6 +51,16 @@ function renderTourneys(ts){
   document.querySelectorAll('[data-cms="tourney-line"]').forEach(e=>{e.innerHTML=ts.length?`${pip(e.dataset.suit||'diamond')}<span><b>Tournaments:</b> ${esc(ts.map(t=>`${t.day} ${shortTime(t.time)}${money(t.buy_in)?` (${money(t.buy_in)})`:''}`).join(' and '))}.</span>`:'';e.hidden=!ts.length});
 }
 
+// ---- gaming activities: promotions, jackpots, tournaments ----
+// Each switched-on activity is listed in the poker room with its BGC ID; switched-off ones stay saved in the CMS.
+function renderActivities(list){
+  const on=(list||[]).filter(a=>a&&a.name&&a.id&&a.active);
+  document.querySelectorAll('[data-cms="activities"]').forEach(box=>{
+    box.hidden=!on.length;
+    box.innerHTML=on.length?`<h3 class="acts-title rv">Gaming activities</h3><ul class="rules rv">${on.map((a,i)=>`<li>${pip(ORDER[(i+1)%4])}<span><b>${esc(a.name)}</b>${a.description?` ${esc(a.description)}`:''}<small class="bgc">${esc(a.name)} <span>${esc(a.id)}</span></small></span></li>`).join('')}</ul>`:'';
+  });
+}
+
 // ---- games ----
 // Bureau of Gambling Control approvals: the law requires each game's base-game name and BGC ID
 // to appear in small print wherever the game is shown.
@@ -84,6 +94,7 @@ function renderGames(gs){
         <p class="rv">${esc(g.description)}</p>
         ${bgc(g,'bgc rv')}
         <ul class="rules rv">${(g.rules||[]).filter(r=>r&&(r.bold||r.text)).map((r,i)=>`<li>${pip(nextSuit(g.suit,i))}<span>${r.bold?`<b>${esc(r.bold)}</b> `:''}${esc(r.text||'')}</span></li>`).join('')}${g.show_tournaments?`<li data-cms="tourney-line" data-suit="${nextSuit(g.suit,(g.rules||[]).filter(r=>r&&(r.bold||r.text)).length)}"></li>`:''}</ul>
+        ${g.show_tournaments?'<div data-cms="activities" hidden></div>':''}
         ${g.show_tournaments?`<div class="center-btn rv" style="justify-content:flex-start;gap:12px;flex-wrap:wrap"><a class="btn gold mag" href="tel:+12092339369"><svg aria-hidden="true"><use href="#phone"/></svg>What's playing tonight?</a><a class="btn" href="tournaments.html">Tournaments<svg aria-hidden="true"><use href="#arrow"/></svg></a></div>`:''}
       </div>
     </section>`).join('');
@@ -119,9 +130,10 @@ const fail=n=>e=>{console.error(`Could not load data/${n}.json`,e);document.quer
 const timeout=new Promise(r=>setTimeout(r,4000));
 // Games render first: the poker room's tournament line is filled by renderTourneys.
 window.cmReady=Promise.race([timeout,Promise.all([
-  get('games').catch(fail('games')),get('menu').catch(fail('menu')),get('tournaments').catch(fail('tournaments'))
-]).then(([g,m,t])=>{
+  get('games').catch(fail('games')),get('menu').catch(fail('menu')),get('tournaments').catch(fail('tournaments')),get('activities').catch(fail('activities'))
+]).then(([g,m,t,a])=>{
   if(g)renderGames(g.games);
+  if(a)renderActivities(a.activities);
   if(m)renderMenu(m);
   if(t)renderTourneys(prepTourneys(t.tournaments));
 })]).catch(e=>console.error(e)).then(()=>{window.cmTourneys=window.cmTourneys||null});
