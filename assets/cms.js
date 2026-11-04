@@ -52,16 +52,20 @@ function renderTourneys(ts){
 }
 
 // ---- games ----
+// Bureau of Gambling Control approvals: the law requires each game's base-game name and BGC ID
+// to appear in small print wherever the game is shown.
+const bgcList=g=>(g.bgc||[]).filter(b=>b&&b.id);
+const bgc=(g,cls='bgc')=>{const l=bgcList(g);return l.length?`<p class="${cls}">${l.map(b=>`${esc(b.game)} <span>${esc(b.id)}</span>`).join(' · ')}</p>`:''};
 function renderGames(gs){
   gs=(gs||[]).filter(g=>g&&g.name);
   const open=gs.filter(g=>g.status!=='soon'),soon=gs.filter(g=>g.status==='soon');
   const suit=g=>pip(g.suit,'suit');
   const home=$('home-games');
-  if(home)home.innerHTML=gs.map(g=>`<article class="gcard rv">${g.status==='soon'?'<span class="soon">Soon</span>':''}${suit(g)}<h3>${esc(g.name)}</h3><p>${esc(g.card_text||g.description||'')}</p></article>`).join('');
+  if(home)home.innerHTML=gs.map(g=>`<article class="gcard rv">${g.status==='soon'?'<span class="soon">Soon</span>':''}${suit(g)}<h3>${esc(g.name)}</h3><p>${esc(g.card_text||g.description||'')}</p>${bgc(g)}</article>`).join('');
   const A=$('trackA'),B=$('trackB');
   if(A&&B){const withImg=gs.filter(g=>g.image);
     // The strip is aria-hidden and the same games are linked in the cards below, so tiles stay out of the tab order.
-    const tile=(g,i)=>`<a class="tile ${i%2?'v':''}" href="games.html#${g.status==='soon'?'games-soon':esc(g.id)}" tabindex="-1"><img src="${esc(thumb(g.image,500))}" alt="" loading="lazy" width="640" height="480">${g.status==='soon'?'<em>Soon</em>':''}<span>${esc(g.name)}</span></a>`;
+    const tile=(g,i)=>`<a class="tile ${i%2?'v':''}" href="games.html#${g.status==='soon'?'games-soon':esc(g.id)}" tabindex="-1"><img src="${esc(thumb(g.image,500))}" alt="" loading="lazy" width="640" height="480">${g.status==='soon'?'<em>Soon</em>':''}<span>${esc(g.name)}${bgcList(g).length?`<small>${bgcList(g).map(b=>esc(b.id)).join(' · ')}</small>`:''}</span></a>`;
     const a=withImg.map(tile).join(''),b=[...withImg].reverse().map(tile).join('');A.innerHTML=a+a;B.innerHTML=b+b}
   const nav=$('games-nav');
   if(nav)nav.innerHTML=open.map(g=>`<a href="#${esc(g.id)}">${esc(g.nav_label||g.name)}</a>`).join('')+(soon.length?'<a href="#games-soon">Coming soon</a>':'');
@@ -72,12 +76,13 @@ function renderGames(gs){
         ${g.category?`<span class="kicker rv">${esc(g.category)}</span>`:''}
         <h2 id="g-${esc(g.id)}" class="rv">${goldName(g.name,g.gold_words)}</h2>
         <p class="rv">${esc(g.description)}</p>
+        ${bgc(g,'bgc rv')}
         <ul class="rules rv">${(g.rules||[]).filter(r=>r&&(r.bold||r.text)).map((r,i)=>`<li>${pip(nextSuit(g.suit,i))}<span>${r.bold?`<b>${esc(r.bold)}</b> `:''}${esc(r.text||'')}</span></li>`).join('')}${g.show_tournaments?`<li data-cms="tourney-line" data-suit="${nextSuit(g.suit,(g.rules||[]).filter(r=>r&&(r.bold||r.text)).length)}"></li>`:''}</ul>
         ${g.show_tournaments?`<div class="center-btn rv" style="justify-content:flex-start;gap:12px;flex-wrap:wrap"><a class="btn gold mag" href="tel:+12092339369"><svg aria-hidden="true"><use href="#phone"/></svg>What's playing tonight?</a><a class="btn" href="tournaments.html">Tournaments<svg aria-hidden="true"><use href="#arrow"/></svg></a></div>`:''}
       </div>
     </section>`).join('');
   const sw=$('games-soon');
-  if(sw){sw.hidden=!soon.length;const l=$('games-soon-list');if(l)l.innerHTML=soon.map(g=>`<article class="gcard rv">${suit(g)}<h3>${esc(g.name)}</h3><p>${esc(g.description||g.card_text||'')}</p></article>`).join('')}
+  if(sw){sw.hidden=!soon.length;const l=$('games-soon-list');if(l)l.innerHTML=soon.map(g=>`<article class="gcard rv">${suit(g)}<h3>${esc(g.name)}</h3><p>${esc(g.description||g.card_text||'')}</p>${bgc(g)}</article>`).join('')}
 }
 
 // ---- menu ----

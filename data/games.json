@@ -2,6 +2,12 @@
   "games": [
     {
       "name": "Pure 21.5 Buster Blackjack",
+      "bgc": [
+        {
+          "game": "Pure 21.5 Buster Blackjack",
+          "id": "GEGR-000070"
+        }
+      ],
       "nav_label": "21.5 Buster",
       "gold_words": "Buster Blackjack",
       "id": "buster",
@@ -30,6 +36,12 @@
     },
     {
       "name": "Pure 21.5 Spanish Blackjack",
+      "bgc": [
+        {
+          "game": "Pure Spanish 21.5",
+          "id": "GEGR-000071"
+        }
+      ],
       "nav_label": "21.5 Spanish",
       "gold_words": "Spanish Blackjack",
       "id": "spanish",
@@ -58,6 +70,12 @@
     },
     {
       "name": "Three Card Poker, 6 Card Bonus",
+      "bgc": [
+        {
+          "game": "Three Card Poker 6 Card Bonus",
+          "id": "GEGR-000072"
+        }
+      ],
       "nav_label": "Three Card Poker",
       "gold_words": "6 Card Bonus",
       "id": "three-card",
@@ -82,6 +100,28 @@
     },
     {
       "name": "Poker room",
+      "bgc": [
+        {
+          "game": "Omaha",
+          "id": "GEGR-000073"
+        },
+        {
+          "game": "Omaha High-Low Split",
+          "id": "GEGR-000074"
+        },
+        {
+          "game": "Texas Hold'em",
+          "id": "GEGR-000075"
+        },
+        {
+          "game": "Texas Hold'em High/Low Split",
+          "id": "GEGR-000076"
+        },
+        {
+          "game": "Poker Tournaments",
+          "id": "GETR-000008"
+        }
+      ],
       "nav_label": "Poker room",
       "id": "poker",
       "status": "open",
@@ -101,6 +141,12 @@
     },
     {
       "name": "Baccarat",
+      "bgc": [
+        {
+          "game": "EZ Baccarat Panda 8",
+          "id": "GEGR-001833"
+        }
+      ],
       "nav_label": "Baccarat",
       "id": "baccarat",
       "status": "open",
@@ -113,6 +159,12 @@
     },
     {
       "name": "Ultimate Texas Hold'em",
+      "bgc": [
+        {
+          "game": "Ultimate Texas Hold'em",
+          "id": "GEGR-001836"
+        }
+      ],
       "nav_label": "Ultimate Texas Hold'em",
       "gold_words": "Texas Hold'em",
       "id": "ultimate-texas-holdem",

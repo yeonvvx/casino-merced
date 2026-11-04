@@ -106,6 +106,27 @@ content:
             label: Game name
             type: string
             required: true
+          - name: bgc
+            label: BGC approvals
+            description: Required by law wherever the game is shown. One row per approved base game or activity, exactly as on the Bureau of Gambling Control list, using the New BGC ID.
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{game} {id}"
+            fields:
+              - name: game
+                label: Name of base game or activity
+                type: string
+                required: true
+              - name: id
+                label: New BGC ID
+                description: e.g. GEGR-000070, GEAR-001324 or GETR-000008
+                type: string
+                required: true
+                pattern:
+                  regex: "^GE[A-Z]{2}-[0-9]{6}$"
+                  message: Use the format GEGR-000070.
           - name: nav_label
             label: Short name for the buttons at the top
             description: Optional, e.g. "21.5 Buster". Leave empty to use the full name.
